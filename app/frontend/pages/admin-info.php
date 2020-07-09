@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<!-- <?php $Product = $product->data(); ?> -->
+<?php $Product = $product->data(); ?>
 <div class="container" style="padding-top: 5%; padding-bottom: 5%;">
     <h2>Update product</h2>
     <form action="" method="post">
