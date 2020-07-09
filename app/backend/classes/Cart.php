@@ -1,6 +1,6 @@
 <?php
 
-class Product {
+class Cart {
     private $_db,
             $_data;
 
@@ -63,8 +63,6 @@ class Product {
         }
         return 0;
     }
-
-
 
     public function clear($user = null) {
         if ($user) {

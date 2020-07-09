@@ -117,6 +117,23 @@ class Database {
         return false;
     }
 
+    public function updateSetting($table, $id, $fields) {
+        $set    = '';
+        $x      = 1;
+        foreach ($fields as $name => $value) {
+            $set .= "{$name} = ?";
+            if ($x < count($fields)) {
+                $set .= ', ';
+            }
+            $x++;
+        }
+        $sql = "UPDATE {$table} SET {$set} WHERE _key = '{$id}'";
+        if (!$this->query($sql, $fields)->error()) {
+            return true;
+        }
+        return false;
+    }
+
     public function results() {
         return $this->_results;
     }

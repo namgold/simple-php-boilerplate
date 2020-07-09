@@ -21,23 +21,26 @@ if (Input::exists()) {
 
     if ($validation->passed()) {
         $result = $setting->update(array(
-            'address'  => Input::get('address')
+            '_key' => 'address',
+            'value' => Input::get('address')
         ), 'address');
         if ($result) {
-            echo 'jghbubu';
             $result = $setting->update(array(
-                'phone'  => Input::get('phone')
+                '_key' => 'phone',
+                'value' => Input::get('phone')
             ),'phone');
             if ($result) {
                 $result = $setting->update(array(
-                    'email'  => Input::get('email')
+                    '_key' => 'email',
+                    'value' => Input::get('email')
                 ),'email');
                 if ($result) {
                     $result = $setting->update(array(
-                        'website'  => Input::get('website')
+                        '_key' => 'website',
+                        'value' => Input::get('website')
                     ), 'website');
                     if ($result) {
-                        echo '<div class="alert alert-danger"><strong></strong>Updated information successfully!</div>';
+                        echo '<div class="alert alert-success"><strong></strong>Updated information successfully!</div>';
                     } else {
                         echo '<div class="alert alert-danger"><strong></strong>Cannot update information!</div>';
                     }

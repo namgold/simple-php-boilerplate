@@ -9,7 +9,7 @@ class Setting {
     }
 
     public function update($fields = array(), $_key = null) {
-        if ($this->_db->update('setting', $_key, $fields)) {
+        if ($this->_db->updateSetting('setting', $_key, $fields)) {
             return true;
         }
         return false;

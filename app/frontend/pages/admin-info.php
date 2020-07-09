@@ -8,6 +8,7 @@
     </div>
 </div>
 <?php
+    refreshSetting();
     $address = getSetting('address');;
     $phone = getSetting('phone');
     $email = getSetting('email');
