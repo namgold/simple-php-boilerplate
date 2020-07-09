@@ -97,7 +97,7 @@ Follow the steps below:
 
 $GLOBALS['config'] = array(
     'app' => array(
-        'name'          => 'AppName',
+        'name'          => 'Lina Spa & Beauty salon',
     ),
     'mysql' => array(
         'host'          => '127.0.0.1',
