@@ -32,20 +32,27 @@ if (Input::exists()) {
             ),
     ));
     if ($validation->passed()) {
-        try {
-            $user->update(array(
-                'name'  => Input::get('name'),
-                'username'  => Input::get('username'),
-            ));
+        $result = $user->update(array(
+            'name'  => Input::get('name'),
+            'username'  => Input::get('username'),
+        ));
+        if ($result) {
             if ($validation->optional()) {
-                $user->update(array(
+                $result = $user->update(array(
                     'password' => Password::hash(Input::get('new_password'))
                 ));
+                if ($result) {
+                    Session::flash('user-update-success', 'Profile successfully updated!');
+                    Redirect::to('index.php');
+                } else {
+                    echo '<div class="alert alert-danger"><strong></strong>Cannot update password</div>';
+                }
+            } else {
+                Session::flash('user-update-success', 'Profile successfully updated!');
+                Redirect::to('index.php');
             }
-            Session::flash('update-success', 'Profile successfully updated!');
-            Redirect::to('index.php');
-        } catch(Exception $e) {
-            die($e->getMessage());
+        } else {
+            echo '<div class="alert alert-danger"><strong></strong>Cannot update user account</div>';
         }
     } else {
         echo '<div class="alert alert-danger"><strong></strong>' . cleaner($validation->error()) . '</div>';

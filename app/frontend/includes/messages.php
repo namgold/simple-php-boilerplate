@@ -23,3 +23,15 @@ if (Session::exists('product-delete-success')) {
   if (Session::exists('product-delete-fail')) {
   echo '<div class="alert alert-danger"><strong></strong>' . Session::flash('product-delete-fail') . '</div>';
 }
+
+if (Session::exists('user-delete-success')) {
+    echo '<div class="alert alert-success"><strong></strong>' . Session::flash('user-delete-success') . '</div>';
+}
+
+if (Session::exists('user-delete-fail')) {
+  echo '<div class="alert alert-danger"><strong></strong>' . Session::flash('user-delete-fail') . '</div>';
+}
+
+if (Session::exists('user-update-success')) {
+  echo '<div class="alert alert-success"><strong></strong>' . Session::flash('user-update-success') . '</div>';
+}

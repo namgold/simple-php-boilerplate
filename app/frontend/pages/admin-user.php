@@ -37,8 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label for="price">Role :<span style="color: red">*</span></label>
-                        <select class="form-control" id="role" placeholder="Select role" name="type" required>
-                            <option value="" style="display:none"></option>
+                        <select class="form-control" id="role" placeholder="Select role" name="role" required>
                             <?php
                                 function renderOptions($value) {
                                     return '<option value="' . $value->uid . '"' . ($GLOBALS['$User']->role == $value->uid ? "selected" : '') . '>' . $value->name . '</option>';

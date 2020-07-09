@@ -27,9 +27,10 @@ class User {
         if (!$id && $this->isLoggedIn()) {
             $id = $this->data()->uid;
         }
-        if (!$this->_db->update('users', $id, $fields)) {
-            throw new Exception('Unable to update the user.');
+        if ($this->_db->update('users', $id, $fields)) {
+            return true;
         }
+        return false;
     }
 
     public function create($fields = array()) {
@@ -95,11 +96,11 @@ class User {
         return false;
     }
 
-    public function hasPermission($key) {
+    public function hasPermission($key = '') {
         $role = $this->_db->get('role', array('uid', '=', $this->data()->role));
         if  ($role->count()) {
             $permissions = json_decode($role->first()->permissions, true);
-            if ($permissions[$key] == true) {
+            if (array_key_exists($key, $permissions) && ($permissions[$key] == true || $permissions[$key] == 1)) {
                 return true;
             }
         }
@@ -128,8 +129,9 @@ class User {
         if ($this->isLoggedIn()) {
             $id = $this->data()->uid;
         }
-        if (!$this->_db->delete('users', array('uid', '=', $id))) {
-            throw new Exception('Unable to update the user.');
+        if ($this->_db->delete('users', array('uid', '=', $id))) {
+            return true;
         }
+        return false;
     }
 }
