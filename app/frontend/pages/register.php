@@ -1,24 +1,24 @@
 
 <div class="container" style="padding-top: 5%; padding-bottom: 5%;">
-<h2>Register Form</h2>
+<h2>Đăng ký thành viên</h2>
   <form name="registerForm" action="" method="post" onsubmit="return validateRegisterForm()">
     <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="<?php echo escape(Input::get('name')); ?>">
+      <label for="name">Họ và Tên:</label>
+      <input type="text" class="form-control" id="name" placeholder="Nhập Họ và Tên" name="name" value="<?php echo escape(Input::get('name')); ?>">
     </div>
     <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" value="<?php echo escape(Input::get('username')); ?>">
+      <label for="username">Tên đăng nhập:</label>
+      <input type="text" class="form-control" id="username" placeholder="Nhập tên đăng nhập" name="username" value="<?php echo escape(Input::get('username')); ?>">
     </div>
     <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+      <label for="password">Mật khẩu:</label>
+      <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" name="password">
     </div>
     <div class="form-group">
-      <label for="password_again">Confirm Password:</label>
-      <input type="password" class="form-control" id="password_again" placeholder="Confirm your password" name="password_again">
+      <label for="password_again">Xác nhận mật khẩu:</label>
+      <input type="password" class="form-control" id="password_again" placeholder="Xác nhận mật khẩu" name="password_again">
     </div>
-    <input class="btn btn-primary" type="submit" value="Register me">
+    <input class="btn btn-primary" type="submit" value="Đăng ký">
   </form>
 </div>
 <script>

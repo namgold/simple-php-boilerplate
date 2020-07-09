@@ -28,16 +28,16 @@
                 <form action="" method="post">
                     <input type="hidden" class="form-control" id="uid" name="uid" value="<?php echo $GLOBALS['$User']->uid; ?>">
                     <div class="form-group">
-                        <label for="name">User name :</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter user name" name="name" value="<?php echo $GLOBALS['$User']->name; ?>" disabled>
+                        <label for="name">Họ và Tên :</label>
+                        <input type="text" class="form-control" id="name" placeholder="Nhập Họ và Tên" name="name" value="<?php echo $GLOBALS['$User']->name; ?>" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="description">Username :</label>
+                        <label for="description">Tên đăng nhập :</label>
                         <input type="text" class="form-control" id="username" name="username" value="<?php echo $GLOBALS['$User']->username; ?>" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="price">Role :<span style="color: red">*</span></label>
-                        <select class="form-control" id="role" placeholder="Select role" name="role" required>
+                        <label for="price">Quyền :<span style="color: red">*</span></label>
+                        <select class="form-control" id="role" placeholder="Chọn quyền" name="role" required>
                             <?php
                                 function renderOptions($value) {
                                     return '<option value="' . $value->uid . '"' . ($GLOBALS['$User']->role == $value->uid ? " selected" : '') . '>' . $value->name . '</option>';
@@ -49,8 +49,8 @@
                             ?>
                         </select>
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Update user">
-                    <a class="btn btn-info" href="/admin-user.php">Go back</a>
+                    <input type="submit" class="btn btn-primary" value="Cập nhật">
+                    <a class="btn btn-info" href="/admin-user.php">Trờ lại</a>
                 </form>
             </div>
         <?php endif; ?>
@@ -66,7 +66,6 @@
                     <td>' . $value->name . '</td>
                     <td>' . $value->username . '</td>
                     <td>' . $value->roleName . '</td>
-                    <td><img src="' . $value->avatar . '" width="200px"></td>
                     <td>
                         <div class="btn-group" style="display: flex;">
                             <a class="btn btn-primary" href="/admin-user.php?uid='. $value->uid .'">Sửa</a>
@@ -83,9 +82,8 @@
                     <th style="width: auto; text-align: center;">#</th>
                     <th style="width: 20%;">ID</th>
                     <th style="width: 20%; white-space: nowrap;">Tên</th>
-                    <th style="width: 30%; white-space: nowrap;">Username</th>
-                    <th style="width: 10%; white-space: nowrap;">Role</th>
-                    <th style="width: 20%; white-space: nowrap;">Avartar</th>
+                    <th style="width: 30%; white-space: nowrap;">Tên đăng nhập</th>
+                    <th style="width: 10%; white-space: nowrap;">Quyền</th>
                     <th style="width: auto; text-align: center; white-space: nowrap;">Thao tác</th>
                 </tr>
             </thead>

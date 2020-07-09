@@ -9,11 +9,10 @@
     </div>
 </div>
 <?php
-    $Setting = $setting->getAll();
-    $address = current(array_filter($Setting, function($element) { return $element->_key == 'address'; }))->value;
-    $phone = current(array_filter($Setting, function($element) { return $element->_key == 'phone'; }))->value;
-    $email = current(array_filter($Setting, function($element) { return $element->_key == 'email'; }))->value;
-    $website = current(array_filter($Setting, function($element) { return $element->_key == 'website'; }))->value;
+    $address = getSetting('address');;
+    $phone = getSetting('phone');
+    $email = getSetting('email');
+    $website = getSetting('website');
 ?>
     <section class="ftco-section contact-section">
       <div class="container">

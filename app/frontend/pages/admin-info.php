@@ -7,42 +7,32 @@
     </div>
     </div>
 </div>
-
-<?php $Product = $product->data(); ?>
+<?php
+    $address = getSetting('address');;
+    $phone = getSetting('phone');
+    $email = getSetting('email');
+    $website = getSetting('website');
+?>
 <div class="container" style="padding-top: 5%; padding-bottom: 5%;">
-    <h2>Update product</h2>
-    <form action="" method="post">
-        <input type="hidden" class="form-control" id="uid" name="uid" value="<?php echo $Product->uid; ?>">
+    <h2>Cập nhật thông tin trang web</h2>
+    <form action="" method="POST">
         <div class="form-group">
-            <label for="name">Product name :<span style="color: red">*</span></label>
-            <input type="text" class="form-control" id="name" placeholder="Enter product name" name="name" value="<?php echo $Product->name; ?>" required>
+            <label for="address">Địa chỉ :<span style="color: red">*</span></label>
+            <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ" name="address" value="<?php echo $address; ?>" required>
         </div>
         <div class="form-group">
-            <label for="description">Description :<span style="color: red">*</span></label>
-            <input type="text" class="form-control" id="description" placeholder="Enter description" name="description" value="<?php echo $Product->description; ?>" required>
+            <label for="phone">Số điện thoại :<span style="color: red">*</span></label>
+            <input type="text" class="form-control" id="phone" placeholder="Nhập số điện thoại" name="phone" value="<?php echo $phone; ?>" required>
         </div>
         <div class="form-group">
-            <label for="price">Price :<span style="color: red">*</span></label>
-            <input type="text" class="form-control" id="price" placeholder="Enter price" name="price" value="<?php echo $Product->price; ?>" required>
+            <label for="email">Email :<span style="color: red">*</span></label>
+            <input type="email" class="form-control" id="email" placeholder="Nhập email" name="email" value="<?php echo $email; ?>" required>
         </div>
         <div class="form-group">
-            <label for="price">Type :<span style="color: red">*</span></label>
-            <select class="form-control" id="type" placeholder="Select type" name="type" required>
-                <option value="" style="display:none"></option>
-                <option value="product" <?php if ($Product->type == 'product') echo 'selected'; ?>>Product</option>
-                <option value="service" <?php if ($Product->type == 'service') echo 'selected'; ?>>Service</option>
-            </select>
+            <label for="website">Số điện thoại :<span style="color: red">*</span></label>
+            <input type="text" class="form-control" id="website" placeholder="Nhập số điện thoại" name="website" value="<?php echo $website; ?>" required>
         </div>
-        <div class="form-group">
-            <label for="image">Image url:<span style="color: red">*</span></label>
-            <input type="text" class="form-control" id="image" placeholder="Enter image url" name="image" value="<?php echo $Product->image; ?>" oninput="document.getElementById('previewImage').src= event.target.value" required>
-        </div>
-        <div class="form-group">
-            <label for="image">Preview image:</label>
-            <br>
-            <img id="previewImage" src="<?php echo $Product->image ?>" width="200px">
-        </div>
-        <input type="submit" class="btn btn-primary" value="Update product">
-        <a class="btn btn-info" href="/admin-product.php">Go back</a>
+        <input type="submit" class="btn btn-primary" value="Cập nhật thông tin">
+        <a class="btn btn-info" href="/admin-product.php">Trở Lại</a>
     </form>
 </div>

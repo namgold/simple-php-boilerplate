@@ -48,7 +48,7 @@ $('.btn-number').click(function(e) {
 $('.input-number').focusin(function(){
    $(this).data('oldValue', $(this).val());
 });
-$('.input-number').onInput(function() {
+$('.input-number').on('input', function() {
 
     minValue =  parseInt($(this).attr('min'));
     maxValue =  parseInt($(this).attr('max'));

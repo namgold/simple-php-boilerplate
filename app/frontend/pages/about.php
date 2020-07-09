@@ -40,7 +40,7 @@
         <div class="row justify-content-center mb-5 pb-3">
         <div class="col-md-7 heading-section ftco-animate text-center">
             <h2 class="mb-4">Sự hài lòng của khách hàng là niềm vinh hạnh của chúng tôi<br/>LINA Spa & Beauty salon</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu enim ut enim blandit tempus. Vivamus quis condimentum nulla. Quisque consectetur ante facilisis, placerat est id, dignissim felis. Duis rutrum volutpat semper. Etiam semper leo dolor, ut pulvinar eros consequat vitae. Ut auctor laoreet libero, ut dapibus mauris pretium in.</p>
+            <p>Với phương châm “Sự hài lòng của khách hàng là thành công của Spa”, SaiGon Spa tuy mới thành lập nhưng nhận được không ít những phản hồi tích cực và sớm có khách hàng trung thành.</p>
         </div>
         </div>
         <div class="row ftco-animate">

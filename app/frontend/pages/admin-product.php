@@ -24,82 +24,82 @@
         <?php else: ?>
             <?php $Product = $product->data(); ?>
             <div class="container" style="padding-top: 5%; padding-bottom: 5%;">
-                <h2>Update product</h2>
+                <h2>Cập nhật sản phẩm / dịch vụ</h2>
                 <form action="" method="post">
                     <input type="hidden" class="form-control" id="uid" name="uid" value="<?php echo $Product->uid; ?>">
                     <div class="form-group">
-                        <label for="name">Product name :<span style="color: red">*</span></label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter product name" name="name" value="<?php echo $Product->name; ?>" required>
+                        <label for="name">Tên sản phẩm / dịch vụ :<span style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="name" placeholder="Nhập tên sản phẩm / dịch vụ" name="name" value="<?php echo $Product->name; ?>" required>
                     </div>
                     <div class="form-group">
-                        <label for="description">Description :<span style="color: red">*</span></label>
-                        <input type="text" class="form-control" id="description" placeholder="Enter description" name="description" value="<?php echo $Product->description; ?>" required>
+                        <label for="description">Mô tả :<span style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="description" placeholder="Nhập mô tả" name="description" value="<?php echo $Product->description; ?>" required>
                     </div>
                     <div class="form-group">
-                        <label for="price">Price :<span style="color: red">*</span></label>
-                        <input type="number" class="form-control" id="price" placeholder="Enter price" name="price" value="<?php echo $Product->price; ?>" required>
+                        <label for="price">Giá :<span style="color: red">*</span></label>
+                        <input type="number" class="form-control" id="price" placeholder="Nhập giá" name="price" value="<?php echo $Product->price; ?>" required>
                     </div>
                     <div class="form-group">
-                        <label for="price">Type :<span style="color: red">*</span></label>
-                        <select class="form-control" id="type" placeholder="Select type" name="type" required>
+                        <label for="price">Loại :<span style="color: red">*</span></label>
+                        <select class="form-control" id="type" placeholder="Chọn loại" name="type" required>
                             <option value="" style="display:none"></option>
-                            <option value="product" <?php if ($Product->type == 'product') echo 'selected'; ?>>Product</option>
-                            <option value="service" <?php if ($Product->type == 'service') echo 'selected'; ?>>Service</option>
+                            <option value="product" <?php if ($Product->type == 'product') echo 'selected'; ?>>Sản phẩm</option>
+                            <option value="service" <?php if ($Product->type == 'service') echo 'selected'; ?>>Dịch vụ</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="image">Image url:<span style="color: red">*</span></label>
-                        <input type="text" class="form-control" id="image" placeholder="Enter image url" name="image" value="<?php echo $Product->image; ?>" oninput="document.getElementById('previewImage').src= event.target.value" required>
+                        <label for="image">Link hình ảnh :<span style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="image" placeholder="Nhập link hình ảnh" name="image" value="<?php echo $Product->image; ?>" oninput="document.getElementById('previewImage').src= event.target.value" required>
                     </div>
                     <div class="form-group">
-                        <label for="image">Preview image:</label>
+                        <label for="image">Xem trước hình ảnh:</label>
                         <br>
                         <img id="previewImage" src="<?php echo $Product->image ?>" width="200px">
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Update product">
-                    <a class="btn btn-info" href="/admin-product.php">Go back</a>
+                    <input type="submit" class="btn btn-primary" value="Cập nhật">
+                    <a class="btn btn-info" href="/admin-product.php">Trở lại</a>
                 </form>
             </div>
         <?php endif; ?>
     <?php else: ?>
-        <p>Product not found!</p>
+        <p>Không tìm thấy sản phẩm / dịch vụ!</p>
     <?php endif; ?>
 <?php elseif ($get_array && array_key_exists('new', $get_array)): ?>
     <div class="container" style="padding-top: 5%; padding-bottom: 5%;">
-        <h2>Create Information</h2>
+        <h2>Tạo mới sản phẩm / dịch vụ</h2>
         <form action="" method="post">
             <div class="form-group">
-                <label for="name">Product name :<span style="color: red">*</span></label>
-                <input type="text" class="form-control" id="name" placeholder="Product name" name="name" required>
+                <label for="name">Tên sản phẩm / dịch vụ :<span style="color: red">*</span></label>
+                <input type="text" class="form-control" id="name" placeholder="Tên sản phẩm / dịch vụ" name="name" required>
             </div>
             <div class="form-group">
-                <label for="description">Description :<span style="color: red">*</span></label>
-                <input type="text" class="form-control" id="description" placeholder="Enter description" name="description" required>
+                <label for="description">Mô tả :<span style="color: red">*</span></label>
+                <input type="text" class="form-control" id="description" placeholder="Nhập mô tả" name="description" required>
             </div>
             <div class="form-group">
-                <label for="price">Price :<span style="color: red">*</span></label>
-                <input type="number" class="form-control" id="price" placeholder="Enter price" name="price" required>
+                <label for="price">Giá :<span style="color: red">*</span></label>
+                <input type="number" class="form-control" id="price" placeholder="Nhập giá" name="price" required>
             </div>
             <div class="form-group">
-                <label for="price">Type :<span style="color: red">*</span></label>
-                <select class="form-control" id="type" placeholder="Select type" name="type" required>
+                <label for="price">Loại :<span style="color: red">*</span></label>
+                <select class="form-control" id="type" placeholder="Chọn loại" name="type" required>
                     <option value="" style="display:none"></option>
-                    <option value="product">Product</option>
-                    <option value="service">Service</option>
+                    <option value="product">Sản phẩm</option>
+                    <option value="service">Dịch vụ</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="image">Image url :<span style="color: red">*</span></label>
-                <input type="text" class="form-control" id="image" placeholder="Enter image url" name="image" oninput="document.getElementById('previewImage').src= event.target.value" required>
+                <label for="image">Link hình ảnh :<span style="color: red">*</span></label>
+                <input type="text" class="form-control" id="image" placeholder="Nhập link hình ảnh" name="image" oninput="document.getElementById('previewImage').src= event.target.value" required>
             </div>
             <div class="form-group">
-                <label for="image">Preview image:</label>
+                <label for="image">Xem trước hình ảnh :</label>
                 <br>
                 <img id="previewImage" src="" width="200px">
             </div>
             <input type="hidden" name="isUpdate" value="true">
-            <input type="submit" class="btn btn-primary" value="Create product">
-            <a class="btn btn-info" href="/admin-product.php">Go back</a>
+            <input type="submit" class="btn btn-primary" value="Tạo mới">
+            <a class="btn btn-info" href="/admin-product.php">Trở lại</a>
         </form>
     </div>
 <?php else: ?>

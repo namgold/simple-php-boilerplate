@@ -11,7 +11,7 @@
             <li class="nav-item mr-3"><a href="admin-user.php" class="nav-link">Người dùng</a></li>
             <li class="nav-item mr-3"><a href="admin-info.php" class="nav-link">Thông tin Shop</a></li>
             <?php if ($user->isLoggedIn()): ?>
-                <li class="nav-item mr-3"><a href="update-account.php" class="nav-link"><i class='fa fa-user'></i> <?php echo $user->data()->name;?></a></li>
+                <li class="nav-item mr-3"><a href="profile.php" class="nav-link"><i class='fa fa-user'></i> <?php echo $user->data()->name;?></a></li>
             <?php else: ?>
                 <li class="nav-item mr-3"><a href="register.php" class="nav-link">Đăng ký</a></li>
                 <li class="nav-item mr-3"><a href="login.php" class="nav-link">Đăng nhập</a></li>
