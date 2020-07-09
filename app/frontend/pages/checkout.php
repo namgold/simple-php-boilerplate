@@ -47,7 +47,7 @@
                             <h3 class="billing-heading">Tổng giỏ hàng</h3>
                             <p class="d-flex">
                                 <span>Tổng tiền hàng</span>
-                                <span>485000</span>
+                                <span><?php echo($cart->cash($user->data()->uid));?></span>
                             </p>
                             <p class="d-flex">
                                 <span>Phí ship</span>
@@ -60,7 +60,7 @@
                             <hr>
                             <p class="d-flex total-price">
                                 <span>Tổng cộng</span>
-                                <span>485000</span>
+                                <span><?php echo($cart->cash($user->data()->uid));?></span>
                             </p>
                         </div>
                     </div>

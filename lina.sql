@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2020 at 10:39 PM
+-- Generation Time: Jul 09, 2020 at 10:44 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -21,6 +21,37 @@ SET time_zone = "+00:00";
 --
 -- Database: `lina`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `uid` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `amount` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`uid`, `user_id`, `product_id`, `amount`) VALUES
+(1, 20, 7, 0),
+(2, 20, 9, 0),
+(10, 20, 19, 0),
+(11, 20, 3, 0),
+(12, 20, 22, 0),
+(13, 20, 20, 0),
+(14, 20, 21, 0),
+(15, 20, 5, 0),
+(16, 20, 18, 0),
+(17, 31, 7, 1),
+(18, 31, 20, 1),
+(19, 31, 21, 1);
 
 -- --------------------------------------------------------
 
@@ -79,6 +110,27 @@ INSERT INTO `role` (`uid`, `name`, `permissions`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `setting`
+--
+
+CREATE TABLE `setting` (
+  `_key` text COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `value` text COLLATE utf8mb4_vietnamese_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Dumping data for table `setting`
+--
+
+INSERT INTO `setting` (`_key`, `value`) VALUES
+('address', 'Meli Spa & Beauty Clinic 234 Huỳnh Văn Bánh, Phường 11, Phú Nhuận, Hồ Chí Minh, Vietnam'),
+('email', '1612115@hcmut.edu.vn'),
+('phone', '0931637305'),
+('website', 'http://github.com/namgold');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -127,6 +179,12 @@ CREATE TABLE `users_session` (
 --
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`uid`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -137,6 +195,12 @@ ALTER TABLE `product`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`uid`);
+
+--
+-- Indexes for table `setting`
+--
+ALTER TABLE `setting`
+  ADD PRIMARY KEY (`_key`(256));
 
 --
 -- Indexes for table `users`
@@ -153,6 +217,12 @@ ALTER TABLE `users_session`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `product`

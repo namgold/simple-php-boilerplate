@@ -19,7 +19,7 @@
                                 ele.innerHTML = `[${num}]`;
                             }
                         }
-                        let _count = <?php echo $cart->amount($user->data()->uid) ?>;
+                        let _count = <?php echo $cart->amount($user->data()->uid);?>;
                         setTimeout(() => updateCartNum(_count), 100);
                         setTimeout(() => updateCartNum(_count), 200);
                         setTimeout(() => updateCartNum(_count), 500);
@@ -38,7 +38,6 @@
                             updateCartNum(_count);
                         }
                     </script>
-
                 <li class="nav-item mr-3">
                     <a id="shopping-cart" href="cart.php" class="nav-link">
                         <span class="icon-shopping_cart"></span>

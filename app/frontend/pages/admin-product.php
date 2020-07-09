@@ -54,7 +54,7 @@
                     <div class="form-group">
                         <label for="image">Xem trước hình ảnh:</label>
                         <br>
-                        <img id="previewImage" src="<?php echo $Product->image ?>" width="200px">
+                        <img id="previewImage" src="<?php echo $Product->image; ?>" width="200px">
                     </div>
                     <input type="submit" class="btn btn-primary" value="Cập nhật">
                     <a class="btn btn-info" href="/admin-product.php">Trở lại</a>

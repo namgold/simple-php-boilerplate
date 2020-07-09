@@ -39,7 +39,7 @@
                                                 <input type="text" name="quant[1]" class="quantity form-control input-number" value="'. $item->amount .'" min="0" max="10">
                                             </div>
                                         </td>
-                                        <td class="total">1200000</td>
+                                        <td class="total">'. $item->price * $item->amount .'</td>
                                         <td class="product-remove">
                                             <span class="input-group-btn">
                                                 <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]">
@@ -67,7 +67,7 @@
                         <h3>Tổng tiền</h3>
                         <p class="d-flex">
                             <span>Tiền hàng</span>
-                            <span id="subtotal-price">200000</span>
+                            <span id="subtotal-price"><?php echo($cart->cash($user->data()->uid));?></span>
                         </p>
                         <p class="d-flex">
                             <span>Phí ship</span>
@@ -80,7 +80,7 @@
                         <hr>
                         <p class="d-flex">
                             <span>Tổng cộng</span>
-                            <span id="total-price">200000</span>
+                            <span id="total-price"><?php echo($cart->cash($user->data()->uid));?></span>
                         </p>
                     </div>
                     <p class="text-center"><a href="checkout.php" class="btn btn-primary py-3 px-4">Tiến hành thanh toán</a></p>

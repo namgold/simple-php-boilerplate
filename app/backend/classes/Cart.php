@@ -67,10 +67,22 @@ class Cart {
         return 0;
     }
 
+    public function cash($user) {
+        if ($user) {
+            $result = $this->findAll($user);
+            if ($result) {
+                return array_reduce($result, function($v, $w) {
+                    return $v + $w->amount * $w->price;
+                }, 0);
+            }
+        }
+        return 0;
+    }
+
     public function clear($user = null) {
         if ($user) {
             if (!$this->_db->query('UPDATE cart SET amount=0 where cart.user_id=?;',array($user))->error()) {
-                return $this->_db->results();
+                return true;
             }
         }
         return false;

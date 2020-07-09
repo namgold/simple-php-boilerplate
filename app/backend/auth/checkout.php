@@ -37,6 +37,7 @@ if (Input::exists()) {
             if ($cart->clear($user->data()->uid)) {
                 Session::flash('checkout-success', 'Đã đặt hàng thành công!');
                 Redirect::to('index.php');
+                return;
             } else {
                 echo '<div class="alert alert-danger"><strong></strong>Cannot process your cart!</div>';
             };
