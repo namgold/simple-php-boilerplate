@@ -1,5 +1,5 @@
 <?php require_once 'start.php'; ?>
-<?php if ($user && $user->hasPermission('admin')): ?>
+<?php if ($user && $user->isLoggedIn() && $user->hasPermission('admin')): ?>
     <?php require_once FRONTEND_INCLUDE . 'header.php'; ?>
     <?php require_once FRONTEND_INCLUDE . 'navbarAdmin.php'; ?>
     <?php require_once FRONTEND_INCLUDE . 'messages.php'; ?>

@@ -20,6 +20,10 @@
                             }
                         }
                         let _count = <?php echo $cart->amount($user->data()->uid) ?>;
+                        setTimeout(() => updateCartNum(_count), 100);
+                        setTimeout(() => updateCartNum(_count), 200);
+                        setTimeout(() => updateCartNum(_count), 500);
+                        setTimeout(() => updateCartNum(_count), 800);
                         setTimeout(() => updateCartNum(_count), 1000);
                         function addToCart(data) {
                             $.post('/cart.php', data, data => {

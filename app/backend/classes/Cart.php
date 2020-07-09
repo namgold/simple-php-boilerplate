@@ -12,9 +12,6 @@ class Cart {
         if ($userId && $productId) {
             $result = $this->find($userId, $productId);
             if ($result) {
-                var_dump($result);
-                echo '\n';
-                var_dump(array('amount' => ((int)$result->amount) + 1));
                 if ($this->_db->update('cart', $result->uid, array('amount' => ((int)$result->amount) + 1))) {
                     return true;
                 }
@@ -30,12 +27,12 @@ class Cart {
     public function find($userId = null, $productId = null) {
         if ($userId) {
             if ($productId) {
-                $query = $this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and cart.product_id=?',array($userId, $productId));
+                $query = $this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and cart.product_id=? and amount > 0',array($userId, $productId));
                 if (!$query->error()) {
                     return $this->_db->first();
                 }
             } else {
-                if (!$this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=?;',array($userId))->error()) {
+                if (!$this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and amount > 0;',array($userId))->error()) {
                     return $this->_db->first();
                 }
             }
@@ -46,11 +43,11 @@ class Cart {
     public function findAll($userId = null, $productId = null) {
         if ($userId) {
             if ($productId) {
-                if (!$this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and cart.product_id=?',array($userId, $productId))->error()) {
+                if (!$this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and cart.product_id=? and amount > 0',array($userId, $productId))->error()) {
                     return $this->_db->results();
                 }
             } else {
-                if (!$this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=?;',array($userId))->error()) {
+                if (!$this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and amount > 0;',array($userId))->error()) {
                     return $this->_db->results();
                 }
             }
@@ -72,23 +69,15 @@ class Cart {
 
     public function clear($user = null) {
         if ($user) {
-            $data = $this->_db->get('cart', array('uid', '=', $user));
-            if ($data->count()) {
-                $this->_data = $data;
-                return true;
+            if (!$this->_db->query('UPDATE cart SET amount=0 where cart.user_id=?;',array($user))->error()) {
+                return $this->_db->results();
             }
         }
+        return false;
     }
 
     public function data() {
         return $this->_data;
     }
 
-    public function deleteMe() {
-        $uid = $this->data()->uid;
-        if ($this->_db->delete('cart', array('uid', '=', $uid))) {
-            return true;
-        }
-        return false;
-    }
 }

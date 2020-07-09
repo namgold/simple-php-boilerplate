@@ -26,7 +26,6 @@ if (Input::exists()) {
             'min'       => 6,
         ),
     ));
-    echo "ádasdasd";
     if ($validation->passed()) {
         $result = $user->update(array(
             'name'  => Input::get('name'),
@@ -34,10 +33,13 @@ if (Input::exists()) {
             'phone'  => Input::get('phone'),
             'email'  => Input::get('email'),
         ), Input::get('uid'));
-        var_dump($result);
         if ($result) {
-            Session::flash('checkout-success', 'Đã đặt hàng thành công!');
-            Redirect::to('index.php');
+            if ($cart->clear($user->data()->uid)) {
+                Session::flash('checkout-success', 'Đã đặt hàng thành công!');
+                Redirect::to('index.php');
+            } else {
+                echo '<div class="alert alert-danger"><strong></strong>Cannot process your cart!</div>';
+            };
         } else {
             echo '<div class="alert alert-danger"><strong></strong>Cannot update user!</div>';
         }

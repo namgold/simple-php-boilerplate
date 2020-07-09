@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2020 at 10:38 AM
+-- Generation Time: Jul 09, 2020 at 10:39 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -42,15 +42,19 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`uid`, `name`, `description`, `price`, `image`, `type`) VALUES
-(1, 'Trị Mụn Huyết Thanh Tảo Biển 155', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent faucibus purus quis tellus interdum, id mollis lectus dapibus. Phasellus velit ligula, pulvinar non finibus a, congue nec mauris. Nullam ac erat at justo interdum vehicula in id ex. Praesent sit amet sapien id nisl maximus vehicula a non nisi. Integer condimentum ante tortor, vitae congue justo tincidunt sed. Quisque consequat tortor ac velit rutrum, nec consectetur nibh mollis.', 192000, './images/huyetthanh.jpg', 'service'),
-(2, 'Điều Trị Mụn Lưng', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent faucibus purus quis tellus interdum, id mollis lectus dapibus. Phasellus velit ligula, pulvinar non finibus a, congue nec mauris. Nullam ac erat at justo interdum vehicula in id ex. Praesent sit amet sapien id nisl maximus vehicula a non nisi. Integer condimentum ante tortor, vitae congue justo tincidunt sed. Quisque consequat tortor ac velit rutrum, nec consectetur nibh mollis.', 245000, './images/lung.jpg', 'service'),
-(3, 'Liệu Trình Chăm Sóc Da Luxury', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent faucibus purus quis tellus interdum, id mollis lectus dapibus. Phasellus velit ligula, pulvinar non finibus a, congue nec mauris. Nullam ac erat at justo interdum vehicula in id ex. Praesent sit amet sapien id nisl maximus vehicula a non nisi. Integer condimentum ante tortor, vitae congue justo tincidunt sed. Quisque consequat tortor ac velit rutrum, nec consectetur nibh mollis.', 290000, './images/luxury.jpg', 'service'),
-(4, 'Liệu Trình Carboxyl Thải Độc Da', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent faucibus purus quis tellus interdum, id mollis lectus dapibus. Phasellus velit ligula, pulvinar non finibus a, congue nec mauris. Nullam ac erat at justo interdum vehicula in id ex. Praesent sit amet sapien id nisl maximus vehicula a non nisi. Integer condimentum ante tortor, vitae congue justo tincidunt sed. Quisque consequat tortor ac velit rutrum, nec consectetur nibh mollis.', 290000, './images/cacbon.jpg', 'service'),
-(5, 'Hút Chì Thải Độc', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent faucibus purus quis tellus interdum, id mollis lectus dapibus. Phasellus velit ligula, pulvinar non finibus a, congue nec mauris. Nullam ac erat at justo interdum vehicula in id ex. Praesent sit amet sapien id nisl maximus vehicula a non nisi. Integer condimentum ante tortor, vitae congue justo tincidunt sed. Quisque consequat tortor ac velit rutrum, nec consectetur nibh mollis.', 260000, './images/hutchi.jpg', 'service'),
-(7, 'Kem chống nắng nám Laaskin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent faucibus purus quis tellus interdum, id mollis lectus dapibus. Phasellus velit ligula, pulvinar non finibus a, congue nec mauris. Nullam ac erat at justo interdum vehicula in id ex. Praesent sit amet sapien id nisl maximus vehicula a non nisi. Integer condimentum ante tortor, vitae congue justo tincidunt sed. Quisque consequat tortor ac velit rutrum, nec consectetur nibh mollis.', 350000, './images/laaskin.jpg', 'product'),
-(9, 'Mặt nạ tràm trà Laaskin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent faucibus purus quis tellus interdum, id mollis lectus dapibus. Phasellus velit ligula, pulvinar non finibus a, congue nec mauris. Nullam ac erat at justo interdum vehicula in id ex. Praesent sit amet sapien id nisl maximus vehicula a non nisi. Integer condimentum ante tortor, vitae congue justo tincidunt sed. Quisque consequat tortor ac velit rutrum, nec consectetur nibh mollis.', 1200000, './images/tram.jpg', 'product'),
-(13, 'Trị Mụn Huyết Thanh Tảo Biển 4', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent faucibus purus quis tellus interdum, id mollis lectus dapibus. Phasellus velit ligula, pulvinar non finibus a, congue nec mauris. Nullam ac erat at justo interdum vehicula in id ex. Praesent sit amet sapien id nisl maximus vehicula a non nisi. Integer condimentum ante tortor, vitae congue justo tincidunt sed. Quisque consequat tortor ac velit rutrum, nec consectetur nibh mollis.', 195000, './images/huyetthanh.jpg', 'service'),
-(15, 'Masssage 5 bước', 'Lorem Ipsum', 200000, 'https://cdn.spafinder.com/2015/08/swedish-massage.jpg', 'service');
+(2, 'Điều Trị Mụn Lưng', 'Mụn lưng xuất hiện và tái đi tái lại chính là nỗi ám ảnh của nhiều người, đặc biệt là vào mùa hè thời tiết nắng nóng. Đừng để mụn lưng trở thành nguyên nhân ngăn cản bạn diện những bộ cánh “mát mẻ” yêu thích! Hãy cùng tìm hiểu ngay liệu trình điều trị mụn lưng tận gốc tại Lina Spa để giải quyết dứt điểm tình trạng này nhé!', 245000, 'images/lung.jpg', 'service'),
+(3, 'Liệu Trình Chăm Sóc Da Luxury', 'Với phụ nữ khuôn mặt luôn là “mặt tiền” sáng giá nhất trên cơ thể họ, là tài sản vô giá mà phái đẹp được quyền nâng niu trau chuốt mỗi ngày. Thế nhưng, tạo hóa vốn không sinh ra những vẻ đẹp vĩnh cửu, vậy nên theo thời gian, làn da mặt chúng ta sẽ bị xuống cấp trầm trọng, kém tươi tắn, bị sạm màu và nhăn nheo nếu như không được chăm sóc đúng cách. Liệu trình chăm sóc da mặt chuyên nghiệp tại Lina Spa sẽ giúp bạn khắc phục hiệu quả vấn đề này!', 290000, './images/luxury.jpg', 'service'),
+(4, 'Liệu Trình Carboxyl Thải Độc Da', 'Carboxyl thải độc da là phương pháp đưa CO2 – loại khí thải quen thuộc trong tự nhiên làm bước đệm nhằm kích thích các mao mạch hoạt động hết công suất. Quá trình này giúp đào thải độc tố và chất bẩn có trong da cũng như thanh lọc da sâu, đem lại bầu khí quyển trong lành cho da.', 290000, './images/cacbon.jpg', 'service'),
+(5, 'Hút Chì Thải Độc', 'Có rất nhiều nguyên nhân khiến da của bạn bị nhiễm chì. Môi trường, bụi bẩn, công việc, thoái quen sinh hoạt là những yếu tố ảnh hưởng trực tiếp. Chất độc sẽ tích tụ dần trên da và lâu ngày sẽ gây ra các vấn đề về da. Bạn nên đi spa hút chì thải độc đều đặn 2 lần/tháng để đảm bảo da bạn luôn sạch và khỏe mạnh.', 260000, './images/hutchi.jpg', 'service'),
+(7, 'Kem chống nắng nám Laaskin', 'Kem chống nắng nám Laaskin chứa thành phần kẽm oxit giúp khuếch tán và phản xạ lại tia UV. Sản phẩm có thành phần 100% từ khoáng chất tự nhiên rất an toàn và dịu nhẹ cho da. Kem chống nắng có kết cấu lỏng nhẹ nên sẽ không gây bết dính hay làm tắc lỗ chân lông. Ngoài việc chống các tác hại từ tia UV, sản phẩm còn giúp chống lại bức xạ hồng ngoại, ô nhiễm môi trường và nhất là ánh sáng xanh từ màn hình máy tính, điện thoại.', 350000, '/images/laaskin.jpg', 'product'),
+(9, 'Mặt nạ tràm trà Laaskin', 'Mặt nạ tràm trà Laaskin với tinh chất từ thiên nhiên chính là “bí quyết vàng” giúp chị em phụ nữ sở hữu làm da căng mướt như sương mai. Không chỉ đem đến vẻ ngoài ấn tượng, mặt nạ còn giúp phụ nữ thêm trẻ trung, tràn đầy sự tự tin và cuốn hút.', 1200000, './images/tram.jpg', 'product'),
+(13, 'Trị Mụn Huyết Thanh Tảo Biển', 'Một trong những làn da có vấn đề khiến các bạn gái e ngại nhất hiện nay là: làn da bị Mụn. Mụn dường như luôn là mỗi nỗi khổ tâm rất lớn. Gây ảnh hưởng không chỉ đến yếu tố thẩm mỹ mà nó còn tác động lớn đến tâm lý bạn gái bởi nỗi mặc cảm và tự ti. Có hàng ngàn lí do để khiến da bạn bị mụn. Nên thôi, chúng ta không bàn lí do nữa, hãy chú ý hơn đến điều này rằng có một tinh hoa nghiên cứu mới của các nhà khoa học trên thế giới đã ra đời và sẽ là “THẦN DƯỢC” của làn da bị mụn – Huyết thanh trị mụn.', 195000, './images/huyetthanh.jpg', 'service'),
+(15, 'Masssage thảo mộc', 'Hiện nay, massage được đa số chúng ta quan tâm hơn giúp cải thiện tinh thần cũng như làm đẹp. Đặc biệt massage thảo dược được sử dụng nhiều hơn cả bởi những ưu điểm khác biệt của chính nó. Trong 1 không gian yên tĩnh, mát mẻ tạo cho  bạn một cảm giác được sự thư thái, cơ thể cùng hòa nhịp với việc chuyển động uyển chuyển của đôi tay khéo léo & túi thảo dược ấm nóng. Massage với túi thảo dược là phương pháp chữa lành vết thương cả cơ thể và tinh hồn cho bạn.', 200000, 'https://cdn.spafinder.com/2015/08/swedish-massage.jpg', 'service'),
+(18, 'Điều Trị Nám Da', 'Phương pháp tác động nhanh thường áp dụng cho những khách hàng có độ nám lâu năm hay nám do nội tiết. Ưu điểm của phương pháp này là kết quả cao, nhanh trong thời gian ngắn 4 đến 6 tuần, nhưng ngược lại trong thời gian hỗ trợ điều trị da khách hàng sẽ có hiện tượng bong tróc và sẽ đỏ hơn bình thường.', 245000, './images/nam.jpg', 'service'),
+(19, 'Gel tẩy tế bào chết Laaskin', 'Gel tẩy tế bào chết Laaskin (cam kết hàng chính hãng). Công dụng: dưỡng ẩm, làm sạch tế bào chết. Cách dùng: lấy 1 lượng vừa đủ massage nhẹ nhàng trên da từ 3-5p. Rửa mặt sạch lại vs nước lạnh. Nên dùng 1-2lần/1 tuần. #tâytebaochetlaaskin', 350000, './images/tay.jpg', 'product'),
+(20, 'Sữa tắm trà xanh Laaskin', 'Với đặc điểm lành tính, giải nhiệt tốt, trà xanh đem đến những tác dụng quan trọng cho làn da. Việc dùng sữa tắm trà xanh không chỉ tạo nên mùi thơm đặc trưng mà nó còn thu nhỏ lỗ chân lông, làm sạch từ sâu bên trong, ngăn ngừa sự xâm nhập của các tác nhân gây hại.  Sữa tắm Laaskin trở thành lựa chọn tuyệt vời giúp đông đảo chị em phụ nữ có được làn da đẹp ấn tượng.', 215000, './images/stam.jpg', 'product'),
+(21, 'Serum tái tạo da Laaskin', 'Serum Laaskin được xem như vị cứu tinh dành cho những làn da bị kích ứng, tổn thương. Serum tái tạo da giúp phục hồi làn da bị tổn thương, nuôi dưỡng da trắng sáng, mịn màng. Sản phẩm có thành phần bao gồm các dưỡng chất thiết yếu cho da, giúp ngăn ngừa lão hóa và cấp ẩm hiệu quả.  Sản phẩm có thành phần vô cùng lành tính và an toàn, do đó bạn có thể an tâm khi sử dụng  Đây là một trong những thương hiệu mỹ phẩm thiên nhiên Hàn Quốc có thành phần vô cùng lành tính và an toàn, do đó bạn có thể an tâm khi sử dụng.', 415000, './images/serum.jpg', 'product'),
+(22, 'Xịt khoáng nha đam Laaskin (Aloe Mineral Spray)', 'Có nhiều những loại xịt khoáng khác nhau, tuy nhiên xịt khoáng Laaskin vẫn luôn được đông đảo chị em lựa chọn. Không chỉ trợ phục hồi những làn da nóng rát, khô sần, ửng đỏ, dòng sản phẩm này còn tăng cường dưỡng ẩm cho làn da, tạo nên cảm giác thoải mái và dễ chịu cho người dùng. Với những người thường xuyên trang điểm và mong muốn được giữ cho lớp ngoài được lâu hơn, loại xịt khoáng này cũng phát huy hiệu quả những tác dụng mà nó mang lại.', 255000, './images/nha.jpg', 'product');
 
 -- --------------------------------------------------------
 
@@ -69,8 +73,8 @@ CREATE TABLE `role` (
 --
 
 INSERT INTO `role` (`uid`, `name`, `permissions`) VALUES
-(1, 'Standard User', ''),
-(2, 'Administrator', '{\"admin\": 1,\r\n\"moderator\" :1}');
+(1, 'Standard User', '{\"user\": 1}'),
+(2, 'Administrator', '{\"admin\": 1,\r\n\"moderator\" :1, \"user\": 1}');
 
 -- --------------------------------------------------------
 
@@ -86,7 +90,7 @@ CREATE TABLE `users` (
   `joined` datetime NOT NULL,
   `role` int(11) NOT NULL,
   `email` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `adress` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `avatar` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -95,13 +99,16 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`uid`, `username`, `password`, `name`, `joined`, `role`, `email`, `adress`, `phone`, `avatar`) VALUES
-(20, 'namgold', '$2y$10$A6QittDzHKpxDFxZIau/2eZeAaond7gbbS8I9Ubkm00adiY3AOYkG', 'namgold', '2020-07-08 17:02:37', 2, '', '', '', ''),
+INSERT INTO `users` (`uid`, `username`, `password`, `name`, `joined`, `role`, `email`, `address`, `phone`, `avatar`) VALUES
+(20, 'namgold', '$2y$10$A6QittDzHKpxDFxZIau/2eZeAaond7gbbS8I9Ubkm00adiY3AOYkG', 'namgold', '2020-07-08 17:02:37', 2, 'abc@abc.abc', 'Bên trái nhà bên phải, bên phải nhà bên trái', 'Số đẹp nhất vùng này', ''),
 (21, 'linhhy2', '$2y$10$Bn9bb79OXmZwzuhNcB50ies8pMymeNokB2odS.5lW7W74nGz8a09.', 'Hy Phạm Ngọc Linh', '2020-07-08 18:00:05', 1, '', '', '', ''),
-(22, '123', '$2y$10$2EVSkVqzyKA7WDXUPaNvvu1nIvPJ5VrQzYmEgckWszT31q0R0p6.G', '123', '2020-07-09 03:52:21', 1, '', '', '', ''),
 (23, 'linhhy', '$2y$10$XJWQQ7pr2i3hfXobduJRfOt9wuSJev3LtG.1knp2.hrxECavsbbDC', 'Linh admin', '2020-07-09 08:20:41', 2, '', '', '', ''),
-(24, 'abc', '$2y$10$Nu1ypIn.3mLZzlBcKtRMsuK1QanVlTWVs3kLbt.RQF9xVkCeGSteS', 'abc', '2020-07-09 08:23:24', 1, '', '', '', ''),
-(25, 'ádadasdasd', '$2y$10$ohVGYfBALEjAUWYRdHp7YuaxYZl31h./Um0n7sdRFvhFnSRJBzqNG', 'đáasd', '2020-07-09 08:24:18', 1, '', '', '', '');
+(25, 'ádadasdasd', '$2y$10$ohVGYfBALEjAUWYRdHp7YuaxYZl31h./Um0n7sdRFvhFnSRJBzqNG', 'đáasd', '2020-07-09 08:24:18', 1, '', '', '', ''),
+(27, '123123', '$2y$10$IbRn6sd7R9wRIHF2OrILnO8OQyvKlcAo9VJu0XCPJ0rV2ZaNsLcZa', '123123', '2020-07-09 10:49:33', 1, '', '', '', ''),
+(29, 'nam123', '$2y$10$xsth89wdShqK091xQpROOeIxOV1ZFS4tetCKPey1ix7h.GMNyv5zK', 'Nam Nguyễn', '2020-07-09 15:30:41', 1, '', '', '', ''),
+(30, 'thamne', '$2y$10$cd4BQ3ooNy/5g2P9TWK1UuVNCvLG8f5JAAnEe54yKL7mA.cwy/vAO', 'Thắm Nè', '2020-07-09 18:28:41', 1, '', '', '', ''),
+(31, 'chumahune', '$2y$10$B9WIuoa1MjIHL9jd/ND.BuCzeulFtZsHNfP4RZeDr/6PcaBeUWfqS', 'Chúa Hề', '2020-07-09 19:05:45', 2, '', '', '', ''),
+(32, 'meomeo', '$2y$10$6H6zoO5E7pRlsgolCkCGSOXyulQiDzbujE.hHeo8B0WDG1k5HBrtu', 'Bông Lan Trứng Muối', '2020-07-09 21:06:57', 1, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -151,7 +158,7 @@ ALTER TABLE `users_session`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -163,13 +170,13 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `users_session`
 --
 ALTER TABLE `users_session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
