@@ -94,7 +94,7 @@
                                         </div>
                                     </div>
                                     <p class="bottom-area d-flex px-3">
-                                        <a href="#" onclick="addToCart({uid: '. $value->uid .'})" class="add-to-cart text-center py-2 mr-1"><span>Thêm vaò giỏ hàng <i class="ion-ios-add ml-1"></i></span></a>
+                                        <a href="#" onclick="event.preventDefault();addToCart({uid: '. $value->uid .'})" class="add-to-cart text-center py-2 mr-1"><span>Thêm vaò giỏ hàng <i class="ion-ios-add ml-1"></i></span></a>
                                         <a href="cart.php" class="buy-now text-center py-2">Mua ngay<span><i class="ion-ios-cart ml-1"></i></span></a>
                                     </p>
                                 </div>
@@ -141,7 +141,7 @@
                             </div>
                             <p class="bottom-area d-flex px-3">'.
                                 ($user->isLoggedIn() ?
-                                    '<a href="#" onclick="addToCart({uid: '. $value->uid .'})" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
+                                    '<a href="#" onclick="event.preventDefault();addToCart({uid: '. $value->uid .'})" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
                                     <a href="/cart.php" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>':
                                     '<a href="/login.php" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
                                     <a href="/login.php" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>')
@@ -171,27 +171,3 @@
         </div>
     </section>
 <?php endif; ?>
-
-<script>
-    function updateCartNum(num) {
-        const ele = document.getElementById("cart-count");
-        if (ele) {
-            ele.innerHTML = `[${num}]`;
-        }
-    }
-    let _count = 0;
-    let ele = document.getElementById("cart-count");
-    _count = ele && ele.innerHTML && Number.parseInt(ele.innerHTML.slice(1,-1)) || 0;
-    function addToCart(data) {
-        $.post('/cart.php', data, data => {
-            data = JSON.parse(data);
-            if (data.error) {
-                _count -= 1;
-                updateCartNum(_count);
-                $.notify("Không thể thêm hàng vào giỏ. Hãy đăng nhập và thử lại.");
-            }
-        });
-        _count += 1;
-        updateCartNum(_count);
-    }
-</script>

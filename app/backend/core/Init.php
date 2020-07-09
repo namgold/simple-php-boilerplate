@@ -11,3 +11,4 @@ require_once 'app/backend/auth/user.php';
 require_once 'app/backend/auth/product.php';
 require_once 'app/backend/auth/role.php';
 require_once 'app/backend/auth/setting.php';
+require_once 'app/backend/auth/cart.php';

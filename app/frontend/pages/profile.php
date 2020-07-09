@@ -1,11 +1,17 @@
-
+<div class="hero-wrap hero-bread" style="background-image: url('images/bg_6.jpg');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <!-- <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ</a></span> <span>Products</span></p> -->
+                <h1 class="mb-0 bread">Thông tin người dùng</h1>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
             <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><?php echo escape($data->name); ?></h3>
-                </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class=" col-md-9 col-lg-9 ">

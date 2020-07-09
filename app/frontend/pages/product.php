@@ -58,7 +58,7 @@
                         <div class="col-md-12">
                             <p style="color: #000;">80 sản phẩm còn sẵn</p>
                         </div>
-                        <p><a href="#" onclick="addToCart({uid: <?php echo $Product->uid; ?>})" class="btn btn-black py-3 px-5">Thêm vào giỏ hàng</a></p>
+                        <p><a href="#" onclick="event.preventDefault(); addToCart({uid: <?php echo $Product->uid; ?>})" class="btn btn-black py-3 px-5">Thêm vào giỏ hàng</a></p>
                 </div>
 
             </div>
@@ -96,7 +96,7 @@
                                     </div>
                                     <p class="bottom-area d-flex px-3">'.
                                         ($user->isLoggedIn() ?
-                                            '<a href="#" onclick="addToCart({uid: '. $value->uid .'})" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
+                                            '<a href="" onclick="event.preventDefault();addToCart({uid: '. $value->uid .'})" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
                                             <a href="/cart.php" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>':
                                             '<a href="/login.php" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
                                             <a href="/login.php" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>')
@@ -145,7 +145,7 @@
                             </div>
                             <p class="bottom-area d-flex px-3">'.
                                 ($user->isLoggedIn() ?
-                                    '<a href="#" onclick="addToCart({uid: '. $value->uid .'})" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
+                                    '<a href="" onclick="event.preventDefault();addToCart({uid: '. $value->uid .'})" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
                                     <a href="/cart.php" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>':
                                     '<a href="/login.php" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
                                     <a href="/login.php" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>')
@@ -175,27 +175,3 @@
         </div>
     </section>
 <?php endif; ?>
-
-<script>
-    function updateCartNum(num) {
-        const ele = document.getElementById("cart-count");
-        if (ele) {
-            ele.innerHTML = `[${num}]`;
-        }
-    }
-    let _count = 0;
-    let ele = document.getElementById("cart-count");
-    _count = ele && ele.innerHTML && Number.parseInt(ele.innerHTML.slice(1,-1)) || 0;
-    function addToCart(data) {
-        $.post('/cart.php', data, data => {
-            data = JSON.parse(data);
-            if (data.error) {
-                _count -= 1;
-                updateCartNum(_count);
-                $.notify("Không thể thêm hàng vào giỏ. Hãy đăng nhập và thử lại.");
-            }
-        });
-        _count += 1;
-        updateCartNum(_count);
-    }
-</script>

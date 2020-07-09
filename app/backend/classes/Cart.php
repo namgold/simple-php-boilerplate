@@ -8,53 +8,59 @@ class Cart {
         $this->_db = Database::getInstance();
     }
 
-    public function update($fields = array(), $uid = null) {
-        if ($this->_db->update('cart', $uid, $fields)) {
-            return true;
-        }
-        return false;
-    }
-
-    public function create($fields = array()) {
-        if ($this->_db->insert('cart', $fields)) {
-            return true;
-        }
-        return false;
-    }
-
-    public function find($user = null) {
-        if ($user) {
-            $data = $this->_db->get('cart', array('uid', '=', $user));
-            if ($data->count()) {
-                $this->_data = $data->first();
-                return $this->_data;
+    public function add($userId = null, $productId = null) {
+        if ($userId && $productId) {
+            $result = $this->find($userId, $productId);
+            if ($result) {
+                var_dump($result);
+                echo '\n';
+                var_dump(array('amount' => ((int)$result->amount) + 1));
+                if ($this->_db->update('cart', $result->uid, array('amount' => ((int)$result->amount) + 1))) {
+                    return true;
+                }
+            } else {
+                if ($this->_db->insert('cart', array('user_id' => $userId, 'product_id' => $productId, 'amount' => 1))) {
+                    return true;
+                }
             }
         }
         return false;
     }
 
-    public function getAll($condition = Array()) {
-        $data = $this->_db->get('cart', $condition);
-        // $data = $this->_db->get('cart', array('uid', '=', $user));
-        if ($data->count()) {
-            $this->_data = $data->results();
-            return $this->_data;
-        }
-        return false;
-    }
-
-    public function getAllJoin($user = null) {
-        if ($user) {
-            if (!$this->_db->query('SELECT cart.*, product.name as \'roleName\' from cart left join product on cart.product_id = product.uid where card.user_id=?',array($user))->error()) {
-                return $this->_db->results();
+    public function find($userId = null, $productId = null) {
+        if ($userId) {
+            if ($productId) {
+                $query = $this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and cart.product_id=?',array($userId, $productId));
+                if (!$query->error()) {
+                    return $this->_db->first();
+                }
+            } else {
+                if (!$this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=?;',array($userId))->error()) {
+                    return $this->_db->first();
+                }
             }
         }
         return false;
     }
 
-    public function amout($user) {
+    public function findAll($userId = null, $productId = null) {
+        if ($userId) {
+            if ($productId) {
+                if (!$this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and cart.product_id=?',array($userId, $productId))->error()) {
+                    return $this->_db->results();
+                }
+            } else {
+                if (!$this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=?;',array($userId))->error()) {
+                    return $this->_db->results();
+                }
+            }
+        }
+        return false;
+    }
+
+    public function amount($user) {
         if ($user) {
-            $result = $this->getAll($user);
+            $result = $this->findAll($user);
             if ($result) {
                 return array_reduce($result, function($v, $w) {
                     return $v + $w->amount;
