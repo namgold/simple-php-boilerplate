@@ -1,6 +1,6 @@
 <?php
 
-class Role {
+class Setting {
     private $_db,
             $_data;
 
@@ -8,23 +8,23 @@ class Role {
         $this->_db = Database::getInstance();
     }
 
-    public function update($fields = array(), $uid = null) {
-        if ($this->_db->update('role', $uid, $fields)) {
+    public function update($fields = array(), $_key = null) {
+        if ($this->_db->update('setting', $_key, $fields)) {
             return true;
         }
         return false;
     }
 
     public function create($fields = array()) {
-        if ($this->_db->insert('role', $fields)) {
+        if ($this->_db->insert('setting', $fields)) {
             return true;
         }
         return false;
     }
 
-    public function find($user = null) {
-        if ($user) {
-            $data = $this->_db->get('role', array('uid', '=', $user));
+    public function find($_key = null) {
+        if ($_key) {
+            $data = $this->_db->get('setting', array('_key', '=', $_key));
             if ($data->count()) {
                 $this->_data = $data->first();
                 return $this->_data;
@@ -33,8 +33,8 @@ class Role {
         return false;
     }
 
-    public function getAll() {
-        $data = $this->_db->get('role');
+    public function getAll($condition = array()) {
+        $data = $this->_db->get('setting', $condition);
         if ($data->count()) {
             $this->_data = $data->results();
             return $this->_data;
@@ -47,8 +47,8 @@ class Role {
     }
 
     public function deleteMe() {
-        $uid = $this->data()->uid;
-        if ($this->_db->delete('role', array('uid', '=', $uid))) {
+        $_key = $this->data()->_key;
+        if ($this->_db->delete('setting', array('_key', '=', $_key))) {
             return true;
         }
         return false;

@@ -40,9 +40,12 @@
                         <select class="form-control" id="role" placeholder="Select role" name="role" required>
                             <?php
                                 function renderOptions($value) {
-                                    return '<option value="' . $value->uid . '"' . ($GLOBALS['$User']->role == $value->uid ? "selected" : '') . '>' . $value->name . '</option>';
+                                    return '<option value="' . $value->uid . '"' . ($GLOBALS['$User']->role == $value->uid ? " selected" : '') . '>' . $value->name . '</option>';
                                 }
-                                echo join(' ', array_map('renderOptions', $role->getAll()));
+                                $roles = $role->getAll();
+                                if ($roles) {
+                                    echo join(' ', array_map('renderOptions', $role->getAll()));
+                                }
                             ?>
                         </select>
                     </div>

@@ -10,3 +10,4 @@ require_once 'app/backend/auth/cookie.php';
 require_once 'app/backend/auth/user.php';
 require_once 'app/backend/auth/product.php';
 require_once 'app/backend/auth/role.php';
+require_once 'app/backend/auth/setting.php';

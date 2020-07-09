@@ -7,10 +7,9 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item mr-3"><a href="index.php" class="nav-link">Trang chủ</a></li>
             <li class="nav-item mr-3"><a href="about.php" class="nav-link">Giới thiệu</a></li>
             <li class="nav-item mr-3"><a href="service.php" class="nav-link">Dịch vụ</a></li>
-            <li class="nav-item mr-3"><a href="store.php" class="nav-link">Lina store</a></li>
+            <li class="nav-item mr-3"><a href="product.php" class="nav-link">Lina store</a></li>
             <li class="nav-item mr-3"><a href="contact.php" class="nav-link">Liên hệ</a></li>
             <li class="nav-item mr-3">
                 <a id="shopping-cart" href="cart.php" class="nav-link">
@@ -19,7 +18,7 @@
                 </a>
             </li>
             <?php if ($user->isLoggedIn()): ?>
-                <li class="nav-item mr-3"><a href="update-account.php" class="nav-link"><i class='fa fa-user'></i><?php echo $user->data()->name;?></a></li>
+                <li class="nav-item mr-3"><a href="update-account.php" class="nav-link"><i class='fa fa-user'></i> <?php echo $user->data()->name;?></a></li>
             <?php else: ?>
                 <li class="nav-item mr-3"><a href="register.php" class="nav-link">Đăng ký</a></li>
                 <li class="nav-item mr-3"><a href="login.php" class="nav-link">Đăng nhập</a></li>

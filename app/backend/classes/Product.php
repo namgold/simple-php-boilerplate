@@ -27,13 +27,14 @@ class Product {
             $data = $this->_db->get('product', array('uid', '=', $user));
             if ($data->count()) {
                 $this->_data = $data->first();
-                return true;
+                return $this->_data;
             }
         }
+        return false;
     }
 
-    public function getAll() {
-        $data = $this->_db->getAll('product');
+    public function getAll($condition = array()) {
+        $data = $this->_db->get('product', $condition);
         if ($data->count()) {
             $this->_data = $data->results();
             return $this->_data;

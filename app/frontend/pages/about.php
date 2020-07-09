@@ -11,11 +11,11 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-md-8 d-flex align-items-stretch">
-                <div class="img" style="background-image: url(images/ktv.jpg);"></div>
+                <div class="img" style="background-image: url(https://i.dailymail.co.uk/1s/2019/10/15/00/19716530-0-image-a-5_1571096727350.jpg);"></div>
             </div>
             <div class="col-md-4 py-md-5 ftco-animate">
                 <div class="text py-3 py-md-5">
-                    <h1 class="mb-4 mt-3">Kỹ thuật viên chuyên nghiệp</h1>
+                    <h1 class="mb-4 mt-3" >Kỹ thuật viên chuyên nghiệp</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu enim ut enim blandit tempus. Vivamus quis condimentum nulla. Quisque consectetur ante facilisis, placerat est id, dignissim felis. Duis rutrum volutpat semper. Etiam semper leo dolor, ut pulvinar eros consequat vitae. Ut auctor laoreet libero.</p>
                 </div>
             </div>

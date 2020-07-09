@@ -72,12 +72,8 @@ class Database {
         return false;
     }
 
-    public function get($table, $where) {
+    public function get($table, $where = array()) {
         return $this->action('SELECT *', $table, $where);
-    }
-
-    public function getAll($table) {
-        return $this->action('SELECT *', $table, array());
     }
 
     public function delete($table, $where) {

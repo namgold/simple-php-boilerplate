@@ -1,184 +1,172 @@
 <div class="hero-wrap hero-bread" style="background-image: url('images/bg_6.jpg');">
     <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center">
-            <div class="col-md-9 ftco-animate text-center">
-                <!-- <p class="breadcrumbs"><span class="mr-2"><a href="index.php">Trang chủ</a></span> <span>Products</span></p> -->
-                <h1 class="mb-0 bread">Dịch vụ</h1>
-            </div>
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-0 bread">Lina Store - Sản phẩm</h1>
         </div>
+    </div>
     </div>
 </div>
-<section class="ftco-section bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-4 col-lg-2 sidebar">
-                <div class="row border-bottom-2">
-                    <div class="col-6 col-md-12 sidebar-box-2">
-                        <h2 class="heading mb-4"><a href="service.php">Dịch vụ</a></h2>
-                        <h2 class="heading mb-4"><a href="store.php">Sản phẩm</a></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8 col-lg-10 order-md-last">
+<?php parse_str($_SERVER['QUERY_STRING'], $get_array);?>
+<?php if ($get_array && array_key_exists('uid', $get_array)): ?>
+    <?php
+        $Product = $product->find($get_array["uid"]);
+        if ($Product): ?>
+        <section class="ftco-section">
+            <div class="container">
                 <div class="row">
-                    <div id="07" class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
-                        <div class="product">
-                            <a href="./product.php?id=01" class="img-prod"><img class="img-fluid"
-                                    src="images/huyetthanh.jpg" alt="Đang tải hình ảnh">
-                                <div class="overlay"></div>
-                            </a>
-                            <div class="text py-3 px-3">
-                                <h3><a href="#/">Trị Mụn Huyết Thanh Tảo Biển</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span> 195,000₫</span></p>
+                    <div class="col-md">
+                        <a href="#/" class="image-popup" id="image-popup"><img id="product-img" src=<?php echo $Product->image; ?> class="img-fluid" alt="Colorlib Template"></a>
+                    </div>
+                    <div class="col-md product-details pl-md-5">
+                        <h4 id="product-title"><?php echo $Product->name; ?></h4>
+                        <div class="rating d-flex">
+                            <p class="text-left mr-4">
+                                <a href="#" class="mr-2">5.0</a>
+                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                            </p>
+                            <p class="text-left mr-4">
+                                <a href="#" class="mr-2" style="color: #000;">100 <span style="color: #bbb;">Đánh giá</span></a>
+                            </p>
+                            <p class="text-left">
+                                <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Đã bán</span></a>
+                            </p>
+                        </div>
+                        <h3 id="product-price" ><?php echo $Product->price; ?> đồng</h3>
+                        <p><?php echo $Product->description; ?></p>
+                        <div class="input-group col-md-6 d-flex mb-3">
+                            <span class="input-group-btn mr-2">
+                               <!-- <button  type="button" class="quantity-left-minus btn"  data-type="minus" data-field=""> -->
+                                <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value"></div>
+                               </button>
+                               </span>
+                               <!-- <input type="text" name="quant[1]" class="quantity form-control input-number" value="1" min="0" max="10"> -->
+                                <!-- <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100"> -->
+                                <input type="number" id="number" name="quantity" class="form-control input-number" value="1" min="1" max="100">
+                             <span class="input-group-btn ml-2">
+                               <!-- <button  type="button" class="quantity-right-plus btn" data-type="plus" data-field=""> -->
+                                <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"></div>
+                            </button>
+                            </span>
+                        </div>
+
+                        <div class="w-100"></div>
+                        <div class="col-md-12">
+                            <p style="color: #000;">80 sản phẩm còn sẵn</p>
+                        </div>
+                        <p><a href="#/" onclick="addToCart()" class="btn btn-black py-3 px-5">Thêm vào giỏ hàng</a></p>
+                </div>
+
+            </div>
+            <br>
+            <a class="btn btn-info" href="/service.php">Go back</a>
+        </section>
+        <?php
+            $data = $product->getAll();
+            if ($data):
+                $data = array_slice($data,0,4);
+                function render($value, $index) {
+                    return
+                        '<div class="col-sm col-md-6 col-lg ftco-animate">
+                            <div class="product">
+                                <a href="/' . $value->type . '.php?uid=' . $value->uid . '" class="img-prod"><img class="img-fluid" src="' . $value->image . '" alt="Colorlib Template">
+                                    <span class="status">30%</span>
+                                    <div class="overlay"></div>
+                                </a>
+                                <div class="text py-3 px-3">
+                                    <h3><a href="/' . $value->type . '.php?uid=' . $value->uid . '">'. $value->name . '</a></h3>
+                                    <div class="d-flex">
+                                        <div class="pricing">
+                                            <p class="price"><span class="price-sale">' . $value->price . ' đồng</span></p>
+                                        </div>
+                                        <div class="rating">
+                                            <p class="text-right">
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                            </p>
+                                        </div>
                                     </div>
+                                    <p class="bottom-area d-flex px-3">
+                                        <a href="#/" onclick="addToCart()" class="add-to-cart text-center py-2 mr-1"><span>Thêm vaò giỏ hàng <i class="ion-ios-add ml-1"></i></span></a>
+                                        <a href="cart.php" class="buy-now text-center py-2">Mua ngay<span><i class="ion-ios-cart ml-1"></i></span></a>
+                                    </p>
                                 </div>
-                                <p class="bottom-area d-flex px-3">
-                                    <a href="#/" onclick="addToCart()"
-                                        class="add-to-cart text-center py-2 mr-1"><span>Thêm vào giỏ <i
-                                                class="ion-ios-add ml-1"></i></span></a>
-                                    <a href="cart.php" class="buy-now text-center py-2">Mua ngay<span><i
-                                                class="ion-ios-cart ml-1"></i></span></a>
-                                </p>
                             </div>
+                        </div>';
+                };
+            endif;
+        ?>
+        <section class="ftco-section bg-light">
+            <div class="container">
+                <div class="row justify-content-center mb-3 pb-3">
+                    <div class="col-md-12 heading-section text-center ftco-animate">
+                        <h2 class="mb-4">Sản phẩm tương tự</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <?php echo join(' ', array_map('render', $data, array_keys($data))); ?>
+                </div>
+            </div>
+        </section>
+    <?php else: ?>
+        <p>Service not found!</p>
+    <?php endif; ?>
+<?php else: ?>
+    <?php
+        $data = $product->getAll(array('type', '=', 'service'));
+        function render($value, $index) {
+            return
+                '<div id=""'. $value->uid .' class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
+                    <div class="product">
+                        <a href="/service.php?uid='. $value->uid .'" class="img-prod"><img class="img-fluid"
+                                src="' . $value->image . '" alt="Đang tải hình ảnh">
+                            <div class="overlay"></div>
+                        </a>
+                        <div class="text py-3 px-3">
+                            <h3><a href="/service.php?uid=' . $value->uid .'" > '. $value->name . '</a></h3>
+                            <div class="d-flex">
+                                <div class="pricing">
+                                    <p class="price"><span>' . $value->price .'₫</span></p>
+                                </div>
+                            </div>
+                            <p class="bottom-area d-flex px-3">
+                                <a href="#/" onclick="addToCart()"
+                                    class="add-to-cart text-center py-2 mr-1"><span>Thêm vào giỏ <i
+                                            class="ion-ios-add ml-1"></i></span></a>
+                                <a href="cart.php" class="buy-now text-center py-2">Mua ngay<span><i
+                                            class="ion-ios-cart ml-1"></i></span></a>
+                            </p>
                         </div>
                     </div>
-                    <div id="08" class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
-                        <div class="product">
-                            <a href="./product.php?id=02" class="img-prod"><img class="img-fluid"
-                                    src="images/lung.jpg" alt="Đang tải hình ảnh">
-                                <div class="overlay"></div>
-                            </a>
-                            <div class="text py-3 px-3">
-                                <h3><a href="#/">Điều Trị Mụn Lưng</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span> 245,000₫</span></p>
-                                    </div>
-                                </div>
-                                <p class="bottom-area d-flex px-3">
-                                    <a href="#/" onclick="addToCart()"
-                                        class="add-to-cart text-center py-2 mr-1"><span>Thêm vào giỏ <i
-                                                class="ion-ios-add ml-1"></i></span></a>
-                                    <a href="cart.php" class="buy-now text-center py-2">Mua ngay<span><i
-                                                class="ion-ios-cart ml-1"></i></span></a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="09" class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
-                        <div class="product">
-                            <a href="./product.php?id=03" class="img-prod"><img class="img-fluid"
-                                    src="images/luxury.jpg"
-                                    alt="Đang tải hình ảnh">
-                                <div class="overlay"></div>
-                            </a>
-                            <div class="text py-3 px-3">
-                                <h3><a href="#/">Liệu Trình Chăm Sóc Da Luxury</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span> 290,000₫</span></p>
-                                    </div>
-                                </div>
-                                <p class="bottom-area d-flex px-3">
-                                    <a href="#/" onclick="addToCart()"
-                                        class="add-to-cart text-center py-2 mr-1"><span>Thêm vào giỏ <i
-                                                class="ion-ios-add ml-1"></i></span></a>
-                                    <a href="cart.php" class="buy-now text-center py-2">Mua ngay<span><i
-                                                class="ion-ios-cart ml-1"></i></span></a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="10" class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
-                        <div class="product">
-                            <a href="./product.php?id=04" class="img-prod"><img class="img-fluid"
-                                    src="images/cacbon.jpg" alt="Đang tải hình ảnh">
-                                <div class="overlay"></div>
-                            </a>
-                            <div class="text py-3 px-3">
-                                <h3><a href="#/">Liệu Trình Carboxyl Thải Độc</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span> 290,000₫</span></p>
-                                    </div>
-                                </div>
-                                <p class="bottom-area d-flex px-3">
-                                    <a href="#/" onclick="addToCart()"
-                                        class="add-to-cart text-center py-2 mr-1"><span>Thêm vào giỏ <i
-                                                class="ion-ios-add ml-1"></i></span></a>
-                                    <a href="cart.php" class="buy-now text-center py-2">Mua ngay<span><i
-                                                class="ion-ios-cart ml-1"></i></span></a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="11" class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
-                        <div class="product">
-                            <a href="./product.php?id=05" class="img-prod"><img class="img-fluid"
-                                    src="images/hutchi.jpg" alt="Đang tải hình ảnh">
-                                <div class="overlay"></div>
-                            </a>
-                            <div class="text py-3 px-3">
-                                <h3><a href="#/">Hút Chì Thải Độc</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span> 260,000₫</span></p>
-                                    </div>
-                                </div>
-                                <p class="bottom-area d-flex px-3">
-                                    <a href="#/" onclick="addToCart()"
-                                        class="add-to-cart text-center py-2 mr-1"><span>Thêm vào giỏ <i
-                                                class="ion-ios-add ml-1"></i></span></a>
-                                    <a href="cart.php" class="buy-now text-center py-2">Mua ngay<span><i
-                                                class="ion-ios-cart ml-1"></i></span></a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="12" class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
-                        <div class="product">
-                            <a href="./product.php?id=06" class="img-prod"><img class="img-fluid"
-                                    src="images/nam.jpg"
-                                    alt="Đang tải hình ảnh">
-                                <div class="overlay"></div>
-                            </a>
-                            <div class="text py-3 px-3">
-                                <h3><a href="#/">Điều Trị Nám Da</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span> 245,000₫</span></p>
-                                    </div>
-                                </div>
-                                <p class="bottom-area d-flex px-3">
-                                    <a href="#/" onclick="addToCart()"
-                                        class="add-to-cart text-center py-2 mr-1"><span>Thêm vào giỏ <i
-                                                class="ion-ios-add ml-1"></i></span></a>
-                                    <a href="cart.php" class="buy-now text-center py-2">Mua ngay<span><i
-                                                class="ion-ios-cart ml-1"></i></span></a>
-                                </p>
-                            </div>
+                </div>';
+        };
+    ?>
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-2 sidebar">
+                    <div class="row border-bottom-2">
+                        <div class="col-6 col-md-12 sidebar-box-2">
+                            <h2 class="heading mb-4"><a href="service.php">Dịch vụ</a></h2>
+                            <h2 class="heading mb-4"><a href="product.php">Sản phẩm</a></h2>
                         </div>
                     </div>
                 </div>
-                <div class="row mt-5">
-                    <div class="col text-center">
-                        <div class="block-27">
-                            <ul>
-                                <li><a href="#/">&lt;</a></li>
-                                <li class="active"><span>1</span></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#/">&gt;</a></li>
-                            </ul>
-                        </div>
+                <div class="col-md-8 col-lg-10 order-md-last">
+                    <div class="row">
+                        <?php echo join(' ', array_map('render', $data, array_keys($data))); ?>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>

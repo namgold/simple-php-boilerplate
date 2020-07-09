@@ -1,3 +1,12 @@
+<div class="hero-wrap hero-bread" style="background-image: url('images/bg_6.jpg');">
+    <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-0 bread">Giỏ hàng</h1>
+        </div>
+    </div>
+    </div>
+</div>
 <section class="ftco-section ftco-cart">
         <div class="container">
             <div class="row">
@@ -12,35 +21,35 @@
                             <th>Số lượng</th>
                             <th>Tổng cộng</th>
                             <th>&nbsp;</th>
-                            
+
                           </tr>
                         </thead>
                         <tbody>
                             <tr class="text-center">
-                                
-                                
+
+
                                 <td class="image-prod"><div class="img" style="background-image:url(images/serum.jpg);"></div></td>
-                                
+
                                 <td class="product-name">
                                     <h3>Serum tái tạo da Laaskin</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat orci, rhoncus vel tincidunt nec, sodales at nisl. Etiam eget mi augue. Donec in aliquam dui, eu pretium augue.</p>
                                 </td>
-                                
+
                                 <td class="price">1200000</td>
-                                
+
                                 <td class="quantity">
                                     <div class="input-group mb-3">
                                     <input type="text" name="quant[1]" class="quantity form-control input-number" value="1" min="0" max="10">
                                     </div>
                                 </td>
-                                
+
                                 <td class="total">1200000</td>
                                 <td class="product-remove"><span class="input-group-btn">
                                         <button type="button" class="btn btn-default btn-number"  data-type="minus" data-field="quant[1]">
                                             <span class="fa fa-minus-square" style="color: red; font-size:24px;"></span>
                                         </button>
                                     </span>
-                                    
+
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
                                             <span class="fa fa-plus-square" style="color: green; font-size:24px;"></span>
@@ -48,31 +57,31 @@
                                     </span></td>
                             </tr><!-- END TR-->
                             <tr class="text-center">
-                                
-                                
+
+
                                     <td class="image-prod">
                                         <div class="img" style="background-image:url(images/cacbon.jpg);"></div></td>
-                                    
+
                                     <td class="product-name">
                                         <h3>Liệu Trình Carboxyl Thải Độc Da</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat orci, rhoncus vel tincidunt nec, sodales at nisl. Etiam eget mi augue. Donec in aliquam dui, eu pretium augue.</p>
                                     </td>
-                                    
+
                                     <td class="price">290000</td>
-                                    
+
                                     <td class="quantity">
                                         <div class="input-group mb-3">
                                         <input type="text" name="quant[2]" class="quantity form-control input-number" value="1" min="0" max="10">
                                         </div>
                                     </td>
-                                    
+
                                     <td class="total">290000</td>
                                     <td class="product-remove"><span class="input-group-btn">
                                                                 <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[2]">
                                                                     <span class="fa fa-minus-square" style="color: red; font-size:24px;"></span>
                                                                 </button>
                                                             </span>
-                                                            
+
                                                             <span class="input-group-btn">
                                                                 <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[2]">
                                                                     <span class="fa fa-plus-square" style="color: green; font-size:24px;"></span>
@@ -80,7 +89,7 @@
                                                             </span></td>
                                 </tr><!-- END TR-->
 
-                          
+
                         </tbody>
                       </table>
                   </div>

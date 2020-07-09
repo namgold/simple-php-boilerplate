@@ -35,3 +35,7 @@ if (Session::exists('user-delete-fail')) {
 if (Session::exists('user-update-success')) {
   echo '<div class="alert alert-success"><strong></strong>' . Session::flash('user-update-success') . '</div>';
 }
+
+if (Session::exists('checkout-success')) {
+  echo '<div class="alert alert-success"><strong></strong>' . Session::flash('checkout-success') . '</div>';
+}

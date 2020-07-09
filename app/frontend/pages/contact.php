@@ -8,29 +8,35 @@
         </div>
     </div>
 </div>
-
+<?php
+    $Setting = $setting->getAll();
+    $address = current(array_filter($Setting, function($element) { return $element->_key == 'address'; }))->value;
+    $phone = current(array_filter($Setting, function($element) { return $element->_key == 'phone'; }))->value;
+    $email = current(array_filter($Setting, function($element) { return $element->_key == 'email'; }))->value;
+    $website = current(array_filter($Setting, function($element) { return $element->_key == 'website'; }))->value;
+?>
     <section class="ftco-section contact-section">
       <div class="container">
           <div class="row d-flex mb-5 contact-info">
           <div class="w-100"></div>
           <div class="col-md-3 d-flex">
               <div class="info bg-white p-4">
-                <p><span>Địa chỉ:</span> Meli Spa & Beauty Clinic 234 Huỳnh Văn Bánh, Phường 11, Phú Nhuận, Hồ Chí Minh, Vietnam</p>
+                <p><span>Địa chỉ:</span> <?php echo $address ?></p>
               </div>
           </div>
           <div class="col-md-3 d-flex">
               <div class="info bg-white p-4">
-                <p><span>Số điện thoại:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                <p><span>Số điện thoại:</span> <a href="tel://<?php echo $phone ?>">+<?php echo $phone ?></a></p>
               </div>
           </div>
           <div class="col-md-3 d-flex">
               <div class="info bg-white p-4">
-                <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                <p><span>Email:</span> <a href="mailto:<?php echo $email ?>"><?php echo $email ?></a></p>
               </div>
           </div>
           <div class="col-md-3 d-flex">
               <div class="info bg-white p-4">
-                <p><span>Website</span> <a href="index.html">yoursite.com</a></p>
+                <p><span>Website</span> <a href="<?php echo $website ?>"><?php echo $website ?></a></p>
               </div>
           </div>
         </div>
@@ -53,12 +59,10 @@
                 <input type="submit" value="Gửi tin nhắn" class="btn btn-primary py-3 px-5">
               </div>
             </form>
-          
           </div>
 
           <div class="col-md-6 d-flex">
               <div class="box_full">
- 
               <div class="box_x bando">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7838.546877737372!2d106.688099!3d10.790357!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc992920033504e1!2sMeli+Spa+%26+Beauty+Clinic!5e0!3m2!1sen!2sus!4v1537496323989" width="500" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe>
               </div>
@@ -67,4 +71,4 @@
         </div>
       </div>
     </div>
-  </section> 
+  </section>

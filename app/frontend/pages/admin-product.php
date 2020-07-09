@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label for="price">Price :<span style="color: red">*</span></label>
-                        <input type="text" class="form-control" id="price" placeholder="Enter price" name="price" value="<?php echo $Product->price; ?>" required>
+                        <input type="number" class="form-control" id="price" placeholder="Enter price" name="price" value="<?php echo $Product->price; ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="price">Type :<span style="color: red">*</span></label>
@@ -61,26 +61,41 @@
                 </form>
             </div>
         <?php endif; ?>
+    <?php else: ?>
+        <p>Product not found!</p>
     <?php endif; ?>
 <?php elseif ($get_array && array_key_exists('new', $get_array)): ?>
     <div class="container" style="padding-top: 5%; padding-bottom: 5%;">
         <h2>Create Information</h2>
         <form action="" method="post">
             <div class="form-group">
-                <label for="name">Product name :</label>
-                <input type="text" class="form-control" id="name" placeholder="Product name" name="name">
+                <label for="name">Product name :<span style="color: red">*</span></label>
+                <input type="text" class="form-control" id="name" placeholder="Product name" name="name" required>
             </div>
             <div class="form-group">
-                <label for="description">Description :</label>
-                <input type="text" class="form-control" id="description" placeholder="Enter description" name="description">
+                <label for="description">Description :<span style="color: red">*</span></label>
+                <input type="text" class="form-control" id="description" placeholder="Enter description" name="description" required>
             </div>
             <div class="form-group">
-                <label for="price">Price :</label>
-                <input type="text" class="form-control" id="price" placeholder="Enter price" name="price">
+                <label for="price">Price :<span style="color: red">*</span></label>
+                <input type="number" class="form-control" id="price" placeholder="Enter price" name="price" required>
             </div>
             <div class="form-group">
-                <label for="image">Image url :</label>
-                <input type="text" class="form-control" id="image" placeholder="Enter image url" name="image">
+                <label for="price">Type :<span style="color: red">*</span></label>
+                <select class="form-control" id="type" placeholder="Select type" name="type" required>
+                    <option value="" style="display:none"></option>
+                    <option value="product">Product</option>
+                    <option value="service">Service</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="image">Image url :<span style="color: red">*</span></label>
+                <input type="text" class="form-control" id="image" placeholder="Enter image url" name="image" oninput="document.getElementById('previewImage').src= event.target.value" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Preview image:</label>
+                <br>
+                <img id="previewImage" src="" width="200px">
             </div>
             <input type="hidden" name="isUpdate" value="true">
             <input type="submit" class="btn btn-primary" value="Create product">
@@ -95,7 +110,7 @@
                 '<tr>
                     <td style="text-align: right;">' . ($index + 1) . '</td>
                     <td style="white-space: nowrap;">' . $value->uid . '</td>
-                    <td>' . $value->name . '</td>
+                    <td><a href="/admin-product.php?uid='. $value->uid . '">'. $value->name . '</a></td>
                     <td>' . $value->description . '</td>
                     <td>' . $value->price . '</td>
                     <td><img src="' . $value->image . '" width="200px"></td>
@@ -110,6 +125,7 @@
         };
     ?>
     <div style="padding: 30px">
+        <a class="btn btn-success" style="float:right" href="/admin-product.php?new">Tạo mới</a></br></br>
         <table class="table table-hover table-bordered table-responsive" style="margin-left:auto;margin-right:auto;">
             <thead>
                 <tr>
@@ -129,6 +145,5 @@
                 ?>
             </tbody>
         </table>
-        <a class="btn btn-info" href="/admin-product.php?new">Tạo mới</a>
     </div>
 <?php endif; ?>

@@ -3,11 +3,11 @@
     <form name="loginForm" action="" method="post" onsubmit="return validateForm()">
         <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
+            <input type="text" class="form-control" id="username" autocomplete placeholder="Enter Username" name="username">
         </div>
         <div class="form-group">
             <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+            <input type="password" class="form-control" id="password" autocomplete placeholder="Enter password" name="password">
         </div>
         <div class="form-group form-check">
             <label for="remember">
