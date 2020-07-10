@@ -17,7 +17,11 @@ if (Input::exists()) {
         $remember   = (Input::get('remember') === 'on') ? true : false;
         $login      = $user->login(Input::get('username'), Input::get('password'), $remember);
         if ($login) {
-            Redirect::to('index.php');
+            if ($user->hasPermission('admin')) {
+                Redirect::to('admin-product.php');
+            } else {
+                Redirect::to('index.php');
+            }
         } else {
             echo '<div class="alert alert-danger"><strong></strong>Username or password are incorrect! Please try again...</div>';
         }

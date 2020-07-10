@@ -56,6 +56,10 @@
                         <br>
                         <img id="previewImage" src="<?php echo $Product->image; ?>" width="200px">
                     </div>
+                    <div class="form-group">
+                        <label for="amount">Số lượng :<span style="color: red">*</span></label>
+                        <input type="number" class="form-control" id="amount" placeholder="Nhập số lượng" name="amount" value="<?php echo $Product->amount; ?>" required>
+                    </div>
                     <input type="submit" class="btn btn-primary" value="Cập nhật">
                     <a class="btn btn-info" href="/admin-product.php">Trở lại</a>
                 </form>
@@ -97,6 +101,10 @@
                 <br>
                 <img id="previewImage" src="" width="200px">
             </div>
+            <div class="form-group">
+                <label for="amount">Số lượng :<span style="color: red">*</span></label>
+                <input type="number" class="form-control" id="amount" placeholder="Nhập số lượng" name="amount" required>
+            </div>
             <input type="hidden" name="isUpdate" value="true">
             <input type="submit" class="btn btn-primary" value="Tạo mới">
             <a class="btn btn-info" href="/admin-product.php">Trở lại</a>
@@ -115,6 +123,7 @@
                     <td>' . $value->price . '</td>
                     <td><img src="' . $value->image . '" width="200px"></td>
                     <td>' . (($value->type == 'service') ? 'Dịch vụ' : 'Sản phẩm') . '</td>
+                    <td>' . $value->amount . '</td>
                     <td>
                         <div class="btn-group" style="display: flex;">
                             <a class="btn btn-primary" href="/admin-product.php?uid='. $value->uid .'">Sửa</a>
@@ -136,6 +145,7 @@
                     <th style="width: 10%; white-space: nowrap;">Giá</th>
                     <th style="width: 20%; white-space: nowrap;">Hình ảnh</th>
                     <th style="width: 20%; white-space: nowrap;">Loại sản phẩm</th>
+                    <th style="width: 10%; white-space: nowrap;">Số lượng</th>
                     <th style="width: auto; text-align: center; white-space: nowrap;">Thao tác</th>
                 </tr>
             </thead>

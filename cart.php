@@ -2,7 +2,7 @@
 <?php if ($_SERVER['REQUEST_METHOD'] == 'POST'):?>
     <?php require_once BACKEND_AUTH . 'cart.php'; ?>
 <?php elseif ($_SERVER['REQUEST_METHOD'] == 'GET'): ?>
-    <?php if ($user && $user->isLoggedIn() && $user->hasPermission('admin')): ?>
+    <?php if ($user && $user->isLoggedIn() && $user->hasPermission('user')): ?>
         <?php require_once FRONTEND_INCLUDE . 'header.php'; ?>
         <?php require_once FRONTEND_INCLUDE . 'navbar.php'; ?>
         <?php require_once FRONTEND_PAGE . 'cart.php'; ?>

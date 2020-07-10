@@ -44,6 +44,9 @@
                         <span id="cart-count">[0]</span>
                     </a>
                 </li>
+                <?php if ($user->isLoggedIn() && $user->hasPermission('admin')): ?>
+                    <li class="nav-item mr-3"><a href="admin-product.php" class="nav-link"><i class='fa fa-cog'></i> Admin</a></li>
+                <?php endif; ?>
                 <li class="nav-item mr-3"><a href="profile.php" class="nav-link"><i class='fa fa-user'></i> <?php echo $user->data()->name;?></a></li>
             <?php else: ?>
                 <li class="nav-item mr-3"><a href="register.php" class="nav-link">Đăng ký</a></li>

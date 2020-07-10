@@ -56,9 +56,13 @@
 
                         <div class="w-100"></div>
                         <div class="col-md-12">
-                            <p style="color: #000;">80 sản phẩm còn sẵn</p>
+                            <p style="color: #000;"><?php echo $Product->amount ?> sản phẩm còn sẵn</p>
                         </div>
-                        <p><a href="#" onclick="event.preventDefault(); addToCart({uid: <?php echo $Product->uid; ?>})" class="btn btn-black py-3 px-5">Thêm vào giỏ hàng</a></p>
+                        <?php if ($user->isLoggedIn()): ?>
+                            <p><a href="#" onclick="event.preventDefault(); addToCart({uid: <?php echo $Product->uid; ?>})" class="btn btn-black py-3 px-5">Thêm vào giỏ hàng</a></p>
+                        <?php else: ?>
+                            <a href="/login.php" class="btn btn-black py-3 px-5">Thêm vào giỏ</a>
+                        <?php endif; ?>
                 </div>
 
             </div>

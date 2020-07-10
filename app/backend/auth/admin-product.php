@@ -24,6 +24,9 @@ if (Input::exists()) {
         'type'  => array(
             'required'  => true,
         ),
+        'amount'  => array(
+            'required'  => true,
+        ),
     ));
     if ($validation->passed()) {
         if (Input::get('uid')) {
@@ -33,6 +36,7 @@ if (Input::exists()) {
                 'price'  => Input::get('price'),
                 'image'  => Input::get('image'),
                 'type'  => Input::get('type'),
+                'amount'  => Input::get('amount'),
             ), Input::get('uid'));
             if ($result) {
                 Session::flash('product-update-success', 'Product successfully updated!');
@@ -47,6 +51,7 @@ if (Input::exists()) {
                 'price'  => Input::get('price'),
                 'image'  => Input::get('image'),
                 'type'  => Input::get('type'),
+                'amount'  => Input::get('amount'),
             ));
             if ($result) {
                 Session::flash('product-create-success', 'Product successfully created!');

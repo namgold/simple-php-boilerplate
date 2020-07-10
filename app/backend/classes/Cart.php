@@ -12,8 +12,14 @@ class Cart {
         if ($userId && $productId) {
             $result = $this->find($userId, $productId);
             if ($result) {
-                if ($this->_db->update('cart', $result->uid, array('amount' => ((int)$result->amount) + 1))) {
-                    return true;
+                if ((int)$result->amount < (int)$result->max) {
+                    if ($this->_db->update('cart', $result->uid, array('amount' => ((int)$result->amount) + 1))) {
+                        return true;
+                    }
+                } else {
+                    if ($this->_db->update('cart', $result->uid, array('amount' => (int)$result->max))) {
+                        return true;
+                    }
                 }
             } else {
                 if ($this->_db->insert('cart', array('user_id' => $userId, 'product_id' => $productId, 'amount' => 1))) {
@@ -27,12 +33,12 @@ class Cart {
     public function find($userId = null, $productId = null) {
         if ($userId) {
             if ($productId) {
-                $query = $this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and cart.product_id=? and amount > 0',array($userId, $productId));
+                $query = $this->_db->query('SELECT product.*, product.amount as \'max\', cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and cart.product_id=?',array($userId, $productId));
                 if (!$query->error()) {
                     return $this->_db->first();
                 }
             } else {
-                if (!$this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and amount > 0;',array($userId))->error()) {
+                if (!$this->_db->query('SELECT product.*, product.amount as \'max\', cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and cart.amount > 0;',array($userId))->error()) {
                     return $this->_db->first();
                 }
             }
@@ -43,11 +49,11 @@ class Cart {
     public function findAll($userId = null, $productId = null) {
         if ($userId) {
             if ($productId) {
-                if (!$this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and cart.product_id=? and amount > 0',array($userId, $productId))->error()) {
+                if (!$this->_db->query('SELECT product.*, product.amount as \'max\', cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and cart.product_id=? and cart.amount > 0',array($userId, $productId))->error()) {
                     return $this->_db->results();
                 }
             } else {
-                if (!$this->_db->query('SELECT product.*, cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and amount > 0;',array($userId))->error()) {
+                if (!$this->_db->query('SELECT product.*, product.amount as \'max\', cart.user_id, cart.amount, cart.uid from cart left join product on cart.product_id = product.uid where cart.user_id=? and cart.amount > 0;',array($userId))->error()) {
                     return $this->_db->results();
                 }
             }

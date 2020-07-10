@@ -52,12 +52,12 @@
 
                         <div class="w-100"></div>
                         <div class="col-md-12">
-                            <p style="color: #000;">80 sản phẩm còn sẵn</p>
+                            <p style="color: #000;"><?php echo $Product->amount ?> sản phẩm còn sẵn</p>
                         </div>
                         <?php if ($user->isLoggedIn()): ?>
-                            <a href="#" onclick='addToCart({uid: <?php echo $Product->uid; ?>})' class="btn btn-black py-3 px-5">Thêm vào giỏ hàng</a>
+                            <a href="#" onclick='event.preventDefault(); addToCart({uid: <?php echo $Product->uid; ?>})' class="btn btn-black py-3 px-5">Thêm vào giỏ hàng</a>
                         <?php else: ?>
-                            <a href="#" onclick='addToCart({uid: <?php echo $Product->uid; ?>})' class="btn btn-black py-3 px-5">Thêm vào giỏ hàng</a>
+                            <a href="/login.php" class="btn btn-black py-3 px-5">Thêm vào giỏ</a>
                         <?php endif; ?>
                 </div>
 
@@ -70,6 +70,7 @@
             if ($data):
                 $data = array_slice($data,0,4);
                 function render($value, $index) {
+                    global $user;
                     return
                         '<div class="col-sm col-md-6 col-lg ftco-animate">
                             <div class="product">
@@ -93,10 +94,13 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <p class="bottom-area d-flex px-3">
-                                        <a href="#" onclick="event.preventDefault();addToCart({uid: '. $value->uid .'})" class="add-to-cart text-center py-2 mr-1"><span>Thêm vaò giỏ hàng <i class="ion-ios-add ml-1"></i></span></a>
-                                        <a href="cart.php" class="buy-now text-center py-2">Mua ngay<span><i class="ion-ios-cart ml-1"></i></span></a>
-                                    </p>
+                                    <p class="bottom-area d-flex px-3">'.
+                                        ($user->isLoggedIn() ?
+                                            '<a href="" onclick="event.preventDefault();addToCart({uid: '. $value->uid .'})" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
+                                            <a href="/cart.php" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>':
+                                            '<a href="/login.php" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
+                                            <a href="/login.php" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>')
+                                    .'</p>
                                 </div>
                             </div>
                         </div>';
