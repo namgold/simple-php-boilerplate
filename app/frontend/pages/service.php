@@ -97,7 +97,7 @@
                                     <p class="bottom-area d-flex px-3">'.
                                         ($user->isLoggedIn() ?
                                             '<a href="" onclick="event.preventDefault();addToCart({uid: '. $value->uid .'})" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
-                                            <a href="/cart.php" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>':
+                                            <a href="/cart.php" onclick="addToCart({uid: '. $value->uid .'})" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>':
                                             '<a href="/login.php" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
                                             <a href="/login.php" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>')
                                     .'</p>
@@ -146,7 +146,7 @@
                             <p class="bottom-area d-flex px-3">'.
                                 ($user->isLoggedIn() ?
                                     '<a href="#" onclick="event.preventDefault();addToCart({uid: '. $value->uid .'})" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
-                                    <a href="/cart.php" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>':
+                                    <a href="/cart.php" onclick="addToCart({uid: '. $value->uid .'})" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>':
                                     '<a href="/login.php" class="add-to-cart text-center py-2 mr-1">Thêm vào giỏ <i class="ion-ios-add ml-1"></i></a>
                                     <a href="/login.php" class="buy-now text-center py-2">Mua ngay <i class="ion-ios-cart ml-1"></i></a>')
                             .'</p>

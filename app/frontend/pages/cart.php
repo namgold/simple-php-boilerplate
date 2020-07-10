@@ -33,21 +33,21 @@
                                             <h3>'. $item->name .'</h3>
                                             <p>'. $item->description .'</p>
                                         </td>
-                                        <td class="price">'. $item->price .'</td>
+                                        <td class="price" name="price_'. $item->uid .'">'. $item->price .'</td>
                                         <td class="quantity">
                                             <div class="input-group mb-3">
-                                                <input type="text" name="cart_'. $item->uid .'" class="quantity form-control input-number" value="'. $item->amount .'" min="0" max="'. $item->max .'">
+                                                <input type="text" name="input_'. $item->uid .'" disabled class="quantity form-control input-number" value="'. $item->amount .'" min="0" max="'. $item->max .'">
                                             </div>
                                         </td>
-                                        <td class="total">'. $item->price * $item->amount .'</td>
+                                        <td class="total" name="total_'. $item->uid .'">'. $item->price * $item->amount .'</td>
                                         <td class="product-remove">
                                             <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="cart_'. $item->uid .'">
+                                                <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="'. $item->uid .'">
                                                     <span class="fa fa-minus-square" style="color: red; font-size:24px;"></span>
                                                 </button>
                                             </span>
                                             <span class="input-group-btn">
-                                                <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="cart_'. $item->uid .'">
+                                                <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="'. $item->uid .'">
                                                     <span class="fa fa-plus-square" style="color: green; font-size:24px;"></span>
                                                 </button>
                                             </span>
@@ -97,10 +97,8 @@
     window.addEventListener('load', (event) => {
         var calculate = function (){
             var sum = 0;
-            $(".total").each(function(index, value){
-
+            $(".total").each(function(index, value) {
                 var total_per_item = parseInt($(this).closest(".text-center").find(".price").text()) * parseInt($(this).closest(".text-center").find(".input-number").val());
-
                 $(this).html(total_per_item);
                 sum += total_per_item;
             });
@@ -111,17 +109,22 @@
         $('.btn-number').click(function(e) {
             e.preventDefault();
 
-            fieldName = $(this).attr('data-field');
-            type      = $(this).attr('data-type');
-            var input = $("input[name='"+fieldName+"']");
-            var currentVal = parseInt(input.val());
+            let fieldName  = $(this).attr('data-field');
+            let type       = $(this).attr('data-type');
+            let input      = $("input[name='input_"+fieldName+"']");
+            let price      = $("td[name='price_"+fieldName+"']");
+            let total      = $("td[name='total_"+fieldName+"']");
+            let minBtn     = $("button[data-field='"+fieldName+"']");
+            let maxBtn     = $("button[data-field='"+fieldName+"']");
+            let currentVal = parseInt(input.val());
             if (!isNaN(currentVal)) {
                 if (type == 'minus') {
                     if (currentVal > input.attr('min')) {
                         input.val(currentVal - 1).change();
+                        maxBtn.attr('disabled', false);
                     }
                     if (parseInt(input.val()) == input.attr('min')) {
-                        var row = $("input[name='"+fieldName+"']").closest("tr").remove();
+                        var row = input.closest("tr").remove();
                     }
                 } else if (type == 'plus') {
                     if (currentVal < input.attr('max')) {
@@ -134,7 +137,8 @@
             } else {
                 input.val(0);
             }
-
+            // total.html(price.html() * input.val());
+            calculate();
         });
         $('.input-number').focusin(function(){
             $(this).data('oldValue', $(this).val());
@@ -142,23 +146,22 @@
         $('.input-number').on('input', function() {
             minValue = parseInt($(this).attr('min'));
             maxValue = parseInt($(this).attr('max'));
-            valueCurrent = parseInt($(this).val());
+            valueCurrent = parseInt($(this).val()) || 0;
 
             name = $(this).attr('name');
-            if(valueCurrent > minValue) {
+            if (valueCurrent > minValue) {
                 $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
             }
                 // } else {
             //     alert('Sorry, the minimum value was reached');
             //     $(this).val($(this).data('oldValue'));
             // }
-            if(valueCurrent <= maxValue) {
+            if (valueCurrent <= maxValue) {
                 $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
             } else {
                 alert('Sorry, the maximum value was reached');
                 $(this).val($(this).data('oldValue'));
             }
-            // calculate();
             calculate();
         });
     });

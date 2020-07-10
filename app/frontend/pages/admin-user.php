@@ -79,12 +79,12 @@
         <table class="table table-hover table-bordered table-responsive" style="margin-left:auto;margin-right:auto;">
             <thead>
                 <tr>
-                    <th style="width: auto; text-align: center;">#</th>
-                    <th style="width: 20%;">ID</th>
-                    <th style="width: 20%; white-space: nowrap;">Tên</th>
-                    <th style="width: 30%; white-space: nowrap;">Tên đăng nhập</th>
-                    <th style="width: 10%; white-space: nowrap;">Quyền</th>
-                    <th style="width: auto; text-align: center; white-space: nowrap;">Thao tác</th>
+                    <th style="width: 10%; text-align: center;">#</th>
+                    <th style="width: 10%;">ID</th>
+                    <th style="width: 30%; white-space: nowrap;">Tên</th>
+                    <th style="width: 25%; white-space: nowrap;">Tên đăng nhập</th>
+                    <th style="width: 20%; white-space: nowrap;">Quyền</th>
+                    <th style="width: 30%; text-align: center; white-space: nowrap;">Thao tác</th>
                 </tr>
             </thead>
             <tbody>
@@ -93,5 +93,20 @@
                 ?>
             </tbody>
         </table>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul>
+                        <li><a href="#/">&lt;</a></li>
+                        <li class="active"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#/">&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 <?php endif; ?>
