@@ -7,3 +7,6 @@ define('FRONTEND_PAGE', 'app/frontend/pages/');
 define('FRONTEND_INCLUDE', 'app/frontend/includes/');
 define('FRONTEND_INCLUDE_ERROR', 'app/frontend/includes/errors/');
 define('FRONTEND_ASSET', 'app/frontend/assets/');
+if ($_SERVER['REQUEST_URI'] == '/start.php'):
+    Redirect::to('index.php');
+endif;
