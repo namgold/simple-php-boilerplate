@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2020 at 06:46 AM
+-- Generation Time: Jul 11, 2020 at 06:59 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `lina`
 --
-CREATE DATABASE IF NOT EXISTS `lina` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci;
-USE `lina`;
 
 -- --------------------------------------------------------
 
@@ -43,18 +41,18 @@ CREATE TABLE `cart` (
 
 INSERT INTO `cart` (`uid`, `user_id`, `product_id`, `amount`) VALUES
 (1, 20, 7, 0),
-(2, 20, 9, 3),
+(2, 20, 9, 0),
 (10, 20, 19, 0),
 (12, 20, 22, 0),
 (13, 20, 20, 0),
 (14, 20, 21, 0),
 (15, 20, 5, 0),
-(16, 20, 18, 10),
+(16, 20, 18, 5),
 (17, 31, 7, 0),
 (18, 31, 20, 0),
 (19, 31, 21, 0),
-(23, 20, 2, 5),
-(25, 20, 3, 12),
+(23, 20, 2, 0),
+(25, 20, 3, 6),
 (26, 33, 2, 4),
 (27, 33, 5, 4),
 (28, 33, 18, 5),
@@ -134,7 +132,7 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`_key`, `value`) VALUES
-('address', 'Meli Spa & Beauty Clinic 234 Huỳnh Văn Bánh, Phường 11, Tân Bình, TPHCM'),
+('address', 'Meli Spa & Beauty Clinic 234 Huỳnh Văn Bánh, Phường 11, Tân Bình, dĩ an'),
 ('email', '1612115@hcmut.edu.vn'),
 ('phone', '0931637301'),
 ('website', 'http://github.com/namgold');
